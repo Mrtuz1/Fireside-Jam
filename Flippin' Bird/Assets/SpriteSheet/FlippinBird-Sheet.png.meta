@@ -1,0 +1,1710 @@
+fileFormatVersion: 2
+guid: d42d0b4e98d58fb4db7bc4639290e21a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 286907632963438884
+    second: FlippinBird-Sheet_0
+  - first:
+      213: 2654835929033670346
+    second: FlippinBird-Sheet_1
+  - first:
+      213: 8278814165998834084
+    second: FlippinBird-Sheet_2
+  - first:
+      213: -3073475999811072623
+    second: FlippinBird-Sheet_3
+  - first:
+      213: 8593804119726918714
+    second: FlippinBird-Sheet_4
+  - first:
+      213: -6170540870114615951
+    second: FlippinBird-Sheet_5
+  - first:
+      213: -2882488068413682051
+    second: FlippinBird-Sheet_6
+  - first:
+      213: -498345236748756949
+    second: FlippinBird-Sheet_7
+  - first:
+      213: 7017515879769746187
+    second: FlippinBird-Sheet_8
+  - first:
+      213: 3548246664288196247
+    second: FlippinBird-Sheet_9
+  - first:
+      213: -6298608844078369487
+    second: FlippinBird-Sheet_10
+  - first:
+      213: 6523130125894611118
+    second: FlippinBird-Sheet_11
+  - first:
+      213: 1694670688646258151
+    second: FlippinBird-Sheet_12
+  - first:
+      213: 8515827377479640213
+    second: FlippinBird-Sheet_13
+  - first:
+      213: -4076798378629283875
+    second: FlippinBird-Sheet_14
+  - first:
+      213: 5675642620890463548
+    second: FlippinBird-Sheet_15
+  - first:
+      213: 133694274782219054
+    second: FlippinBird-Sheet_16
+  - first:
+      213: -3356829882849400981
+    second: FlippinBird-Sheet_17
+  - first:
+      213: 334122407132609815
+    second: FlippinBird-Sheet_18
+  - first:
+      213: -4795516634758467155
+    second: FlippinBird-Sheet_19
+  - first:
+      213: 9196995881666241211
+    second: FlippinBird-Sheet_20
+  - first:
+      213: -3524420645698718388
+    second: FlippinBird-Sheet_21
+  - first:
+      213: 7769804879552040676
+    second: FlippinBird-Sheet_22
+  - first:
+      213: -7162828746480085571
+    second: FlippinBird-Sheet_23
+  - first:
+      213: -8295129685166402942
+    second: FlippinBird-Sheet_24
+  - first:
+      213: -101675443277840076
+    second: FlippinBird-Sheet_25
+  - first:
+      213: 2185637019006178690
+    second: FlippinBird-Sheet_26
+  - first:
+      213: 6463014781985997733
+    second: FlippinBird-Sheet_27
+  - first:
+      213: 39917218461603495
+    second: FlippinBird-Sheet_28
+  - first:
+      213: -8581770758603239947
+    second: FlippinBird-Sheet_29
+  - first:
+      213: 6654499529366006904
+    second: FlippinBird-Sheet_30
+  - first:
+      213: -7197516838740241951
+    second: FlippinBird-Sheet_31
+  - first:
+      213: 634713569989163510
+    second: FlippinBird-Sheet_32
+  - first:
+      213: -5630228914030990746
+    second: FlippinBird-Sheet_33
+  - first:
+      213: -7179281315257473448
+    second: FlippinBird-Sheet_34
+  - first:
+      213: -2610969991762579712
+    second: FlippinBird-Sheet_35
+  - first:
+      213: 4419498941762086773
+    second: FlippinBird-Sheet_36
+  - first:
+      213: -4718196380816086445
+    second: FlippinBird-Sheet_37
+  - first:
+      213: 4044806409081988804
+    second: FlippinBird-Sheet_38
+  - first:
+      213: 8922156084936381799
+    second: FlippinBird-Sheet_39
+  - first:
+      213: -9168379080361572349
+    second: FlippinBird-Sheet_40
+  - first:
+      213: -5109386585501588395
+    second: FlippinBird-Sheet_41
+  - first:
+      213: 6383441029270722811
+    second: FlippinBird-Sheet_42
+  - first:
+      213: -2612203926356633488
+    second: FlippinBird-Sheet_43
+  - first:
+      213: 8418051285640355900
+    second: FlippinBird-Sheet_44
+  - first:
+      213: -1699816544997927158
+    second: FlippinBird-Sheet_45
+  - first:
+      213: -8422520894334348872
+    second: FlippinBird-Sheet_46
+  - first:
+      213: 3857238781835057721
+    second: FlippinBird-Sheet_47
+  - first:
+      213: 2539261421181463118
+    second: FlippinBird-Sheet_48
+  - first:
+      213: 4805677801744636357
+    second: FlippinBird-Sheet_49
+  - first:
+      213: -72888309653417457
+    second: FlippinBird-Sheet_50
+  - first:
+      213: 6834126178381628000
+    second: FlippinBird-Sheet_51
+  - first:
+      213: 5859117986720794664
+    second: FlippinBird-Sheet_52
+  - first:
+      213: 4112543065397088920
+    second: FlippinBird-Sheet_53
+  - first:
+      213: 3919723805788165242
+    second: FlippinBird-Sheet_54
+  - first:
+      213: 4720507040802156062
+    second: FlippinBird-Sheet_55
+  - first:
+      213: 8287526330359186138
+    second: FlippinBird-Sheet_56
+  - first:
+      213: 7548361437473122031
+    second: FlippinBird-Sheet_57
+  - first:
+      213: -2670414309004522466
+    second: FlippinBird-Sheet_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 27
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15119
+        width: 480
+        height: 271
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 429422ad8fc4bf300800000000000000
+      internalID: 286907632963438884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14849
+        width: 480
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acefef6263fd7d420800000000000000
+      internalID: 2654835929033670346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 14677
+        width: 100
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a115d5fe9144e270800000000000000
+      internalID: 8278814165998834084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 14346
+        width: 158
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d8295bcd1d855d0800000000000000
+      internalID: -3073475999811072623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 14300
+        width: 196
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c8c91a053534770800000000000000
+      internalID: 8593804119726918714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 13789
+        width: 169
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17dd9c485c5dd5aa0800000000000000
+      internalID: -6170540870114615951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 13633
+        width: 255
+        height: 117
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e86e4bf585ff7d0800000000000000
+      internalID: -2882488068413682051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 13246
+        width: 92
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b281514c5a58519f0800000000000000
+      internalID: -498345236748756949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 13044
+        width: 32
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0ba6532389336160800000000000000
+      internalID: 7017515879769746187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 12723
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796dc50ba87ed3130800000000000000
+      internalID: 3548246664288196247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 12480
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1353395b0a8d698a0800000000000000
+      internalID: -6298608844078369487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 12230
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea0f899d940d68a50800000000000000
+      internalID: 6523130125894611118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 11907
+        width: 36
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edd608330ea48710800000000000000
+      internalID: 1694670688646258151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 11665
+        width: 42
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 594683b81eb4e2670800000000000000
+      internalID: 8515827377479640213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 11401
+        width: 37
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfb9e4797d4c67c0800000000000000
+      internalID: -4076798378629283875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 11151
+        width: 36
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d3e3294eee3ce40800000000000000
+      internalID: 5675642620890463548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 10900
+        width: 36
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2bc5ec0c3afad100800000000000000
+      internalID: 133694274782219054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 10689
+        width: 38
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b67685db1052a61d0800000000000000
+      internalID: -3356829882849400981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 10420
+        width: 38
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71d33ac1f8a03a400800000000000000
+      internalID: 334122407132609815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 10149
+        width: 38
+        height: 57
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1beb64707e27db0800000000000000
+      internalID: -4795516634758467155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 9912
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2627fc60b42af70800000000000000
+      internalID: 9196995881666241211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 9912
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45331e881eb61fc0800000000000000
+      internalID: -3524420645698718388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 9664
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eecbcb2f54e3db60800000000000000
+      internalID: 7769804879552040676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 9664
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db519139435889c90800000000000000
+      internalID: -7162828746480085571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 9373
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282dbd53087c1ec80800000000000000
+      internalID: -8295129685166402942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 9373
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4314b0919b6c69ef0800000000000000
+      internalID: -101675443277840076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 9094
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2859ecde941f45e10800000000000000
+      internalID: 2185637019006178690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 8864
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a3cf52a3bd31b950800000000000000
+      internalID: 6463014781985997733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 8554
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a653daaf70dd8000800000000000000
+      internalID: 39917218461603495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_29
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 8277
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd8e9596fc67e880800000000000000
+      internalID: -8581770758603239947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_30
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 7982
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c6ddd9018895c50800000000000000
+      internalID: 6654499529366006904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_31
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 7734
+        width: 50
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1def9b1984d1c90800000000000000
+      internalID: -7197516838740241951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_32
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 7459
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f9f25901a4fec800800000000000000
+      internalID: 634713569989163510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_33
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 7163
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66aac0702a86dd1b0800000000000000
+      internalID: -5630228914030990746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_34
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 6890
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856aa756ea11e5c90800000000000000
+      internalID: -7179281315257473448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_35
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 6674
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00f69c140a8f3cbd0800000000000000
+      internalID: -2610969991762579712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_36
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 6410
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 577a1fc3fd6355d30800000000000000
+      internalID: 4419498941762086773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_37
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 6135
+        width: 47
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35a6ce4c369958eb0800000000000000
+      internalID: -4718196380816086445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_38
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 5306
+        width: 106
+        height: 548
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c62e8eaff9022830800000000000000
+      internalID: 4044806409081988804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_39
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 4984
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765193900bdd1db70800000000000000
+      internalID: 8922156084936381799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_40
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 4729
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3080de47dcf53c080800000000000000
+      internalID: -9168379080361572349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_41
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 4460
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554280f98ffc719b0800000000000000
+      internalID: -5109386585501588395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_42
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 4207
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf8d5529bc9869850800000000000000
+      internalID: 6383441029270722811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_43
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 3921
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078d1a87e569fbbd0800000000000000
+      internalID: -2612203926356633488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_44
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 3634
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c302d952b0de2d470800000000000000
+      internalID: 8418051285640355900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_45
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 3471
+        width: 59
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a07111cbbd90968e0800000000000000
+      internalID: -1699816544997927158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_46
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 3162
+        width: 59
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b155ebfed13d1b80800000000000000
+      internalID: -8422520894334348872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_47
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 2932
+        width: 59
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93a932d4c3aa78530800000000000000
+      internalID: 3857238781835057721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_48
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 2564
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4aef591fc44d3320800000000000000
+      internalID: 2539261421181463118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_49
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 2305
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c918f5cf7231b240800000000000000
+      internalID: 4805677801744636357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_50
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2284
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0254d2f77c0dfef0800000000000000
+      internalID: -72888309653417457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_51
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 2006
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06282acec81b7de50800000000000000
+      internalID: 6834126178381628000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_52
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 1736
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 828489714c4cf4150800000000000000
+      internalID: 5859117986720794664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_53
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1466
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8925d78f020b21930800000000000000
+      internalID: 4112543065397088920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_54
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 1196
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7455a5a808a56630800000000000000
+      internalID: 3919723805788165242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_55
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 906
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e2ebea42c928140800000000000000
+      internalID: 4720507040802156062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_56
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 636
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad281cbc945330370800000000000000
+      internalID: 8287526330359186138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_57
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 366
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe6a7d40cba21c860800000000000000
+      internalID: 7548361437473122031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_58
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 96
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1c4aac9558c0fad0800000000000000
+      internalID: -2670414309004522466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_59
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2296
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ae459d6a88b3a746a02e411b1489742
+      internalID: -712404950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FlippinBird-Sheet_60
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 2264
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b6efbee28e492649b28e7d1248d1cb6
+      internalID: 1953374687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 48640a7d860b7394ca5c843613683e13
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FlippinBird-Sheet_0: 286907632963438884
+      FlippinBird-Sheet_1: 2654835929033670346
+      FlippinBird-Sheet_10: -6298608844078369487
+      FlippinBird-Sheet_11: 6523130125894611118
+      FlippinBird-Sheet_12: 1694670688646258151
+      FlippinBird-Sheet_13: 8515827377479640213
+      FlippinBird-Sheet_14: -4076798378629283875
+      FlippinBird-Sheet_15: 5675642620890463548
+      FlippinBird-Sheet_16: 133694274782219054
+      FlippinBird-Sheet_17: -3356829882849400981
+      FlippinBird-Sheet_18: 334122407132609815
+      FlippinBird-Sheet_19: -4795516634758467155
+      FlippinBird-Sheet_2: 8278814165998834084
+      FlippinBird-Sheet_20: 9196995881666241211
+      FlippinBird-Sheet_21: -3524420645698718388
+      FlippinBird-Sheet_22: 7769804879552040676
+      FlippinBird-Sheet_23: -7162828746480085571
+      FlippinBird-Sheet_24: -8295129685166402942
+      FlippinBird-Sheet_25: -101675443277840076
+      FlippinBird-Sheet_26: 2185637019006178690
+      FlippinBird-Sheet_27: 6463014781985997733
+      FlippinBird-Sheet_28: 39917218461603495
+      FlippinBird-Sheet_29: -8581770758603239947
+      FlippinBird-Sheet_3: -3073475999811072623
+      FlippinBird-Sheet_30: 6654499529366006904
+      FlippinBird-Sheet_31: -7197516838740241951
+      FlippinBird-Sheet_32: 634713569989163510
+      FlippinBird-Sheet_33: -5630228914030990746
+      FlippinBird-Sheet_34: -7179281315257473448
+      FlippinBird-Sheet_35: -2610969991762579712
+      FlippinBird-Sheet_36: 4419498941762086773
+      FlippinBird-Sheet_37: -4718196380816086445
+      FlippinBird-Sheet_38: 4044806409081988804
+      FlippinBird-Sheet_39: 8922156084936381799
+      FlippinBird-Sheet_4: 8593804119726918714
+      FlippinBird-Sheet_40: -9168379080361572349
+      FlippinBird-Sheet_41: -5109386585501588395
+      FlippinBird-Sheet_42: 6383441029270722811
+      FlippinBird-Sheet_43: -2612203926356633488
+      FlippinBird-Sheet_44: 8418051285640355900
+      FlippinBird-Sheet_45: -1699816544997927158
+      FlippinBird-Sheet_46: -8422520894334348872
+      FlippinBird-Sheet_47: 3857238781835057721
+      FlippinBird-Sheet_48: 2539261421181463118
+      FlippinBird-Sheet_49: 4805677801744636357
+      FlippinBird-Sheet_5: -6170540870114615951
+      FlippinBird-Sheet_50: -72888309653417457
+      FlippinBird-Sheet_51: 6834126178381628000
+      FlippinBird-Sheet_52: 5859117986720794664
+      FlippinBird-Sheet_53: 4112543065397088920
+      FlippinBird-Sheet_54: 3919723805788165242
+      FlippinBird-Sheet_55: 4720507040802156062
+      FlippinBird-Sheet_56: 8287526330359186138
+      FlippinBird-Sheet_57: 7548361437473122031
+      FlippinBird-Sheet_58: -2670414309004522466
+      FlippinBird-Sheet_59: -712404950
+      FlippinBird-Sheet_6: -2882488068413682051
+      FlippinBird-Sheet_60: 1953374687
+      FlippinBird-Sheet_7: -498345236748756949
+      FlippinBird-Sheet_8: 7017515879769746187
+      FlippinBird-Sheet_9: 3548246664288196247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
