@@ -1,0 +1,25 @@
+-flappy bird
+
+-modular character creation
+
+-scene setup
+
+-character dialogue baloncuk
+
+-malzemelerin konteynerlarına basılınca ele alınması, köftenin pişmesi, tabak üzerinde hamburger yapma
+
+-müşteriler bizden random sipariş verecekler (input : gün sayısına göre burger içeriğinin artması olabilir)
+
+-siparişe göre ödeme aldık
+
+-gün mantığını oturt
+
+-UI 
+
+-Sanity bar
+
+-sanity value'ya göre CRT filtre 
+
+
+
+ekstra: soslar (ketçap mayonez hardal)
