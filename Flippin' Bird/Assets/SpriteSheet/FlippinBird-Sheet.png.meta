@@ -287,7 +287,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FlippinBird-Sheet_0
+      name: WallPoster
       rect:
         serializedVersion: 2
         x: 0
@@ -309,13 +309,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_1
+      name: Counter
       rect:
         serializedVersion: 2
         x: 0
-        y: 14849
+        y: 14850
         width: 480
-        height: 109
+        height: 107
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,13 +331,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_2
+      name: Computer_BG
       rect:
         serializedVersion: 2
-        x: 353
-        y: 14677
-        width: 100
-        height: 74
+        x: 354
+        y: 14679
+        width: 98
+        height: 72
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,13 +353,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_3
+      name: Computer
       rect:
         serializedVersion: 2
-        x: 322
-        y: 14346
-        width: 158
-        height: 140
+        x: 323
+        y: 14347
+        width: 157
+        height: 138
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,13 +375,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_4
+      name: Led
       rect:
         serializedVersion: 2
-        x: 40
-        y: 14300
-        width: 196
-        height: 11
+        x: 41
+        y: 14301
+        width: 194
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -397,13 +397,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_5
+      name: GrillTop
       rect:
         serializedVersion: 2
-        x: 11
-        y: 13789
-        width: 169
-        height: 97
+        x: 12
+        y: 13790
+        width: 167
+        height: 95
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,13 +419,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_6
+      name: Window_Corner
       rect:
         serializedVersion: 2
-        x: 20
-        y: 13633
-        width: 255
-        height: 117
+        x: 266
+        y: 13634
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,13 +441,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_7
+      name: Plate
       rect:
         serializedVersion: 2
-        x: 189
-        y: 13246
-        width: 92
-        height: 53
+        x: 190
+        y: 13247
+        width: 90
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,7 +463,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_8
+      name: Container
       rect:
         serializedVersion: 2
         x: 190
@@ -485,13 +485,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_9
+      name: Bun_Bottom
       rect:
         serializedVersion: 2
-        x: 217
-        y: 12723
-        width: 36
-        height: 23
+        x: 218
+        y: 12724
+        width: 34
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -507,13 +507,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_10
+      name: Patty_Raw
       rect:
         serializedVersion: 2
-        x: 81
-        y: 12480
-        width: 36
-        height: 22
+        x: 82
+        y: 12481
+        width: 34
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,13 +529,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_11
+      name: Patty_Cooked
       rect:
         serializedVersion: 2
-        x: 320
-        y: 12230
-        width: 36
-        height: 22
+        x: 321
+        y: 12231
+        width: 34
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -551,13 +551,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_12
+      name: Patty_Burnt
       rect:
         serializedVersion: 2
-        x: 283
-        y: 11907
-        width: 36
-        height: 22
+        x: 284
+        y: 11908
+        width: 34
+        height: 20
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -573,13 +573,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_13
+      name: Cheese
       rect:
         serializedVersion: 2
-        x: 251
-        y: 11665
-        width: 42
-        height: 27
+        x: 252
+        y: 11666
+        width: 40
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -595,13 +595,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_14
+      name: Lettuce
       rect:
         serializedVersion: 2
-        x: 188
-        y: 11401
-        width: 37
-        height: 26
+        x: 189
+        y: 11402
+        width: 35
+        height: 24
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -617,13 +617,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_15
+      name: Tomato
       rect:
         serializedVersion: 2
-        x: 240
-        y: 11151
-        width: 36
-        height: 24
+        x: 241
+        y: 11152
+        width: 34
+        height: 22
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -639,13 +639,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_16
+      name: Bun_Top
       rect:
         serializedVersion: 2
-        x: 282
-        y: 10900
-        width: 36
-        height: 23
+        x: 283
+        y: 10901
+        width: 34
+        height: 21
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -661,13 +661,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_17
+      name: Face_1
       rect:
         serializedVersion: 2
-        x: 51
-        y: 10689
-        width: 38
-        height: 58
+        x: 52
+        y: 10690
+        width: 36
+        height: 56
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -683,13 +683,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_18
+      name: Face_2
       rect:
         serializedVersion: 2
-        x: 109
-        y: 10420
-        width: 38
-        height: 57
+        x: 110
+        y: 10421
+        width: 36
+        height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -705,13 +705,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_19
+      name: Face_3
       rect:
         serializedVersion: 2
-        x: 162
-        y: 10149
-        width: 38
-        height: 57
+        x: 163
+        y: 10150
+        width: 36
+        height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -727,35 +727,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_20
+      name: Eye_1
       rect:
         serializedVersion: 2
-        x: 64
-        y: 9912
-        width: 13
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bb2627fc60b42af70800000000000000
-      internalID: 9196995881666241211
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FlippinBird-Sheet_21
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 9912
-        width: 11
-        height: 11
+        x: 65
+        y: 9913
+        width: 22
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -771,35 +749,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_22
+      name: Eye_2
       rect:
         serializedVersion: 2
-        x: 89
-        y: 9664
-        width: 14
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4eecbcb2f54e3db60800000000000000
-      internalID: 7769804879552040676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FlippinBird-Sheet_23
-      rect:
-        serializedVersion: 2
-        x: 103
-        y: 9664
-        width: 11
-        height: 12
+        x: 90
+        y: 9665
+        width: 24
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -815,35 +771,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_24
+      name: Eye_3
       rect:
         serializedVersion: 2
-        x: 122
-        y: 9373
-        width: 13
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 282dbd53087c1ec80800000000000000
-      internalID: -8295129685166402942
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FlippinBird-Sheet_25
-      rect:
-        serializedVersion: 2
-        x: 136
-        y: 9373
-        width: 10
-        height: 10
+        x: 123
+        y: 9374
+        width: 22
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -859,13 +793,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_26
+      name: Nose_1
       rect:
         serializedVersion: 2
-        x: 72
-        y: 9094
-        width: 8
-        height: 12
+        x: 73
+        y: 9095
+        width: 6
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -881,13 +815,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_27
+      name: Nose_2
       rect:
         serializedVersion: 2
-        x: 63
-        y: 8864
-        width: 7
-        height: 13
+        x: 64
+        y: 8865
+        width: 5
+        height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -903,13 +837,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_28
+      name: Nose_3
       rect:
         serializedVersion: 2
-        x: 133
-        y: 8554
-        width: 7
-        height: 11
+        x: 134
+        y: 8555
+        width: 5
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -925,13 +859,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_29
+      name: Hair3_3
       rect:
         serializedVersion: 2
-        x: 156
-        y: 8277
-        width: 50
-        height: 48
+        x: 157
+        y: 8278
+        width: 48
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -947,13 +881,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_30
+      name: Hair3_2
       rect:
         serializedVersion: 2
-        x: 318
-        y: 7982
-        width: 50
-        height: 48
+        x: 319
+        y: 7983
+        width: 48
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -969,13 +903,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_31
+      name: Hair3_1
       rect:
         serializedVersion: 2
-        x: 46
-        y: 7734
-        width: 50
-        height: 48
+        x: 47
+        y: 7735
+        width: 48
+        height: 46
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -991,13 +925,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_32
+      name: Hair2_3
       rect:
         serializedVersion: 2
-        x: 102
-        y: 7459
-        width: 54
-        height: 53
+        x: 103
+        y: 7460
+        width: 52
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1013,13 +947,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_33
+      name: Hair2_2
       rect:
         serializedVersion: 2
-        x: 268
-        y: 7163
-        width: 54
-        height: 53
+        x: 269
+        y: 7164
+        width: 52
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1035,13 +969,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_34
+      name: Hair2_1
       rect:
         serializedVersion: 2
-        x: 219
-        y: 6890
-        width: 54
-        height: 53
+        x: 220
+        y: 6891
+        width: 52
+        height: 51
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1057,13 +991,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_35
+      name: Hair1_3
       rect:
         serializedVersion: 2
-        x: 314
-        y: 6674
-        width: 47
-        height: 46
+        x: 315
+        y: 6675
+        width: 45
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1079,13 +1013,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_36
+      name: Hair1_2
       rect:
         serializedVersion: 2
-        x: 270
-        y: 6410
-        width: 47
-        height: 46
+        x: 271
+        y: 6411
+        width: 45
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1101,13 +1035,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_37
+      name: Hair1_1
       rect:
         serializedVersion: 2
-        x: 216
-        y: 6135
-        width: 47
-        height: 46
+        x: 217
+        y: 6136
+        width: 45
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1123,35 +1057,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_38
+      name: Cloth1_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 5306
-        width: 106
-        height: 548
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4c62e8eaff9022830800000000000000
-      internalID: 4044806409081988804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: FlippinBird-Sheet_39
-      rect:
-        serializedVersion: 2
-        x: 278
-        y: 4984
-        width: 59
-        height: 30
+        x: 279
+        y: 4985
+        width: 57
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1167,13 +1079,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_40
+      name: Cloth1_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 4729
-        width: 59
-        height: 30
+        x: 145
+        y: 4730
+        width: 57
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1189,13 +1101,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_41
+      name: Cloth1_3
       rect:
         serializedVersion: 2
-        x: 34
-        y: 4460
-        width: 59
-        height: 30
+        x: 35
+        y: 4461
+        width: 57
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1211,13 +1123,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_42
+      name: Cloth2_1
       rect:
         serializedVersion: 2
-        x: 420
-        y: 4207
-        width: 59
-        height: 30
+        x: 421
+        y: 4208
+        width: 57
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1233,13 +1145,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_43
+      name: Cloth2_2
       rect:
         serializedVersion: 2
-        x: 92
-        y: 3921
-        width: 59
-        height: 30
+        x: 93
+        y: 3922
+        width: 57
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1255,13 +1167,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_44
+      name: Cloth2_3
       rect:
         serializedVersion: 2
-        x: 421
-        y: 3634
-        width: 59
-        height: 30
+        x: 422
+        y: 3635
+        width: 57
+        height: 28
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1277,13 +1189,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_45
+      name: Cloth3_1
       rect:
         serializedVersion: 2
-        x: 359
-        y: 3471
-        width: 59
-        height: 40
+        x: 360
+        y: 3472
+        width: 57
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1299,13 +1211,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_46
+      name: Cloth3_2
       rect:
         serializedVersion: 2
-        x: 361
-        y: 3162
-        width: 59
-        height: 40
+        x: 362
+        y: 3163
+        width: 57
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1321,13 +1233,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_47
+      name: Cloth3_3
       rect:
         serializedVersion: 2
-        x: 420
-        y: 2932
-        width: 59
-        height: 39
+        x: 421
+        y: 2933
+        width: 57
+        height: 37
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1343,13 +1255,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_48
+      name: Bird
       rect:
         serializedVersion: 2
-        x: 357
-        y: 2564
-        width: 16
-        height: 12
+        x: 358
+        y: 2565
+        width: 14
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1365,7 +1277,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_49
+      name: Tube_Body_top
       rect:
         serializedVersion: 2
         x: 419
@@ -1387,7 +1299,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_50
+      name: Tube_Head_Bottom
       rect:
         serializedVersion: 2
         x: 417
@@ -1409,7 +1321,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_51
+      name: Burn1
       rect:
         serializedVersion: 2
         x: 77
@@ -1431,7 +1343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_52
+      name: Burn2
       rect:
         serializedVersion: 2
         x: 103
@@ -1453,7 +1365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_53
+      name: Burn3
       rect:
         serializedVersion: 2
         x: 126
@@ -1475,7 +1387,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_54
+      name: Burn4
       rect:
         serializedVersion: 2
         x: 148
@@ -1497,7 +1409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_55
+      name: Cook1
       rect:
         serializedVersion: 2
         x: 78
@@ -1519,7 +1431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_56
+      name: Cook2
       rect:
         serializedVersion: 2
         x: 104
@@ -1541,7 +1453,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_57
+      name: Cook3
       rect:
         serializedVersion: 2
         x: 127
@@ -1563,7 +1475,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_58
+      name: Cook4
       rect:
         serializedVersion: 2
         x: 149
@@ -1585,7 +1497,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_59
+      name: Tube_Head_top
       rect:
         serializedVersion: 2
         x: 417
@@ -1593,7 +1505,7 @@ TextureImporter:
         width: 15
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1607,7 +1519,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FlippinBird-Sheet_60
+      name: Tube_Body_Bottom
       rect:
         serializedVersion: 2
         x: 419
@@ -1615,7 +1527,7 @@ TextureImporter:
         width: 11
         height: 20
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -1624,6 +1536,138 @@ TextureImporter:
       bones: []
       spriteID: 2b6efbee28e492649b28e7d1248d1cb6
       internalID: 1953374687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_VerticalEdge
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 13642
+        width: 6
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2313865aaec864e81d621882c86386
+      internalID: 563116702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_HorizontalEdge
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 13634
+        width: 237
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 715f56f3a3bed6246beaa0cb0b832b6a
+      internalID: -2114664865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Window_BG
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 13640
+        width: 241
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa32a302b91fd1c47853d7e5183ff16a
+      internalID: -1042950766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouth_1
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 5846
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6af66e3452a0440b8fcf1d267d7f00
+      internalID: -56616549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouth_2
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 5624
+        width: 11
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c0d74ffb9d81f4faba76a4f1c3bbac
+      internalID: -1717504321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouth_3
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 5307
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8897654cb52735a4fad5d5e5c9699c9b
+      internalID: 1904112452
       vertices: []
       indices: 
       edges: []
@@ -1642,67 +1686,73 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FlippinBird-Sheet_0: 286907632963438884
-      FlippinBird-Sheet_1: 2654835929033670346
-      FlippinBird-Sheet_10: -6298608844078369487
-      FlippinBird-Sheet_11: 6523130125894611118
-      FlippinBird-Sheet_12: 1694670688646258151
-      FlippinBird-Sheet_13: 8515827377479640213
-      FlippinBird-Sheet_14: -4076798378629283875
-      FlippinBird-Sheet_15: 5675642620890463548
-      FlippinBird-Sheet_16: 133694274782219054
-      FlippinBird-Sheet_17: -3356829882849400981
-      FlippinBird-Sheet_18: 334122407132609815
-      FlippinBird-Sheet_19: -4795516634758467155
-      FlippinBird-Sheet_2: 8278814165998834084
+      Bird: 2539261421181463118
+      Bun_Bottom: 3548246664288196247
+      Bun_Top: 133694274782219054
+      Burn1: 6834126178381628000
+      Burn2: 5859117986720794664
+      Burn3: 4112543065397088920
+      Burn4: 3919723805788165242
+      Cheese: 8515827377479640213
+      Cloth1_1: 8922156084936381799
+      Cloth1_2: -9168379080361572349
+      Cloth1_3: -5109386585501588395
+      Cloth2_1: 6383441029270722811
+      Cloth2_2: -2612203926356633488
+      Cloth2_3: 8418051285640355900
+      Cloth3_1: -1699816544997927158
+      Cloth3_2: -8422520894334348872
+      Cloth3_3: 3857238781835057721
+      Computer: -3073475999811072623
+      Computer_BG: 8278814165998834084
+      Container: 7017515879769746187
+      Cook1: 4720507040802156062
+      Cook2: 8287526330359186138
+      Cook3: 7548361437473122031
+      Cook4: -2670414309004522466
+      Counter: 2654835929033670346
+      Eye_1: -3524420645698718388
+      Eye_2: -7162828746480085571
+      Eye_3: -101675443277840076
+      Face_1: -3356829882849400981
+      Face_2: 334122407132609815
+      Face_3: -4795516634758467155
       FlippinBird-Sheet_20: 9196995881666241211
-      FlippinBird-Sheet_21: -3524420645698718388
       FlippinBird-Sheet_22: 7769804879552040676
-      FlippinBird-Sheet_23: -7162828746480085571
       FlippinBird-Sheet_24: -8295129685166402942
-      FlippinBird-Sheet_25: -101675443277840076
-      FlippinBird-Sheet_26: 2185637019006178690
-      FlippinBird-Sheet_27: 6463014781985997733
-      FlippinBird-Sheet_28: 39917218461603495
-      FlippinBird-Sheet_29: -8581770758603239947
-      FlippinBird-Sheet_3: -3073475999811072623
-      FlippinBird-Sheet_30: 6654499529366006904
-      FlippinBird-Sheet_31: -7197516838740241951
-      FlippinBird-Sheet_32: 634713569989163510
-      FlippinBird-Sheet_33: -5630228914030990746
-      FlippinBird-Sheet_34: -7179281315257473448
-      FlippinBird-Sheet_35: -2610969991762579712
-      FlippinBird-Sheet_36: 4419498941762086773
-      FlippinBird-Sheet_37: -4718196380816086445
       FlippinBird-Sheet_38: 4044806409081988804
-      FlippinBird-Sheet_39: 8922156084936381799
-      FlippinBird-Sheet_4: 8593804119726918714
-      FlippinBird-Sheet_40: -9168379080361572349
-      FlippinBird-Sheet_41: -5109386585501588395
-      FlippinBird-Sheet_42: 6383441029270722811
-      FlippinBird-Sheet_43: -2612203926356633488
-      FlippinBird-Sheet_44: 8418051285640355900
-      FlippinBird-Sheet_45: -1699816544997927158
-      FlippinBird-Sheet_46: -8422520894334348872
-      FlippinBird-Sheet_47: 3857238781835057721
-      FlippinBird-Sheet_48: 2539261421181463118
-      FlippinBird-Sheet_49: 4805677801744636357
-      FlippinBird-Sheet_5: -6170540870114615951
-      FlippinBird-Sheet_50: -72888309653417457
-      FlippinBird-Sheet_51: 6834126178381628000
-      FlippinBird-Sheet_52: 5859117986720794664
-      FlippinBird-Sheet_53: 4112543065397088920
-      FlippinBird-Sheet_54: 3919723805788165242
-      FlippinBird-Sheet_55: 4720507040802156062
-      FlippinBird-Sheet_56: 8287526330359186138
-      FlippinBird-Sheet_57: 7548361437473122031
-      FlippinBird-Sheet_58: -2670414309004522466
-      FlippinBird-Sheet_59: -712404950
-      FlippinBird-Sheet_6: -2882488068413682051
-      FlippinBird-Sheet_60: 1953374687
-      FlippinBird-Sheet_7: -498345236748756949
-      FlippinBird-Sheet_8: 7017515879769746187
-      FlippinBird-Sheet_9: 3548246664288196247
+      GrillTop: -6170540870114615951
+      Hair1_1: -4718196380816086445
+      Hair1_2: 4419498941762086773
+      Hair1_3: -2610969991762579712
+      Hair2_1: -7179281315257473448
+      Hair2_2: -5630228914030990746
+      Hair2_3: 634713569989163510
+      Hair3_1: -7197516838740241951
+      Hair3_2: 6654499529366006904
+      Hair3_3: -8581770758603239947
+      Led: 8593804119726918714
+      Lettuce: -4076798378629283875
+      Mouth_1: -56616549
+      Mouth_2: -1717504321
+      Mouth_3: 1904112452
+      Nose_1: 2185637019006178690
+      Nose_2: 6463014781985997733
+      Nose_3: 39917218461603495
+      Patty_Burnt: 1694670688646258151
+      Patty_Cooked: 6523130125894611118
+      Patty_Raw: -6298608844078369487
+      Plate: -498345236748756949
+      Tomato: 5675642620890463548
+      Tube_Body_Bottom: 1953374687
+      Tube_Body_top: 4805677801744636357
+      Tube_Head_Bottom: -72888309653417457
+      Tube_Head_top: -712404950
+      WallPoster: 286907632963438884
+      Window_BG: -1042950766
+      Window_Corner: -2882488068413682051
+      Window_HorizontalEdge: -2114664865
+      Window_VerticalEdge: 563116702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
