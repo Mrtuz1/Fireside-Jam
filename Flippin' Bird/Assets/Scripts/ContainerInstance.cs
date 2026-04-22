@@ -7,15 +7,42 @@ public class ContainerInstance : MonoBehaviour
     [Tooltip("Color to change to when hovered")]
     public Color hoverColor = new Color(0.7f, 0.7f, 0.7f, 1f);
     
-    private SpriteRenderer spriteRenderer;
-    private Color originalColor;
+    private SpriteRenderer[] allRenderers;
+    private Color[] originalColors;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        if (spriteRenderer != null)
+        // Kendisi ve altındaki tüm SpriteRenderer'ları bul
+        allRenderers = GetComponentsInChildren<SpriteRenderer>();
+        originalColors = new Color[allRenderers.Length];
+        
+        for (int i = 0; i < allRenderers.Length; i++)
         {
-            originalColor = spriteRenderer.color;
+            originalColors[i] = allRenderers[i].color;
+        }
+    }
+
+    private void SetHoverColor()
+    {
+        if (allRenderers == null) return;
+        for (int i = 0; i < allRenderers.Length; i++)
+        {
+            if (allRenderers[i] != null)
+            {
+                allRenderers[i].color = hoverColor;
+            }
+        }
+    }
+
+    private void RevertColor()
+    {
+        if (allRenderers == null) return;
+        for (int i = 0; i < allRenderers.Length; i++)
+        {
+            if (allRenderers[i] != null)
+            {
+                allRenderers[i].color = originalColors[i];
+            }
         }
     }
 
@@ -39,20 +66,13 @@ public class ContainerInstance : MonoBehaviour
         // Dim color if mouse is empty OR if holding an ingredient of the same type (or any bun if this is a bun container)
         if (PlayerHand.Instance.heldIngredient == null || isMatch)
         {
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.color = hoverColor;
-            }
+            SetHoverColor();
         }
     }
 
     private void OnMouseExit()
     {
-        // Revert to original color when mouse exits
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.color = originalColor;
-        }
+        RevertColor();
     }
 
     private void OnMouseDown()
@@ -106,10 +126,7 @@ public class ContainerInstance : MonoBehaviour
                 PlayerHand.Instance.heldIngredient = null;
                 
                 // Ensure hover color stays since mouse is still hovering and now empty
-                if (spriteRenderer != null)
-                {
-                    spriteRenderer.color = hoverColor;
-                }
+                SetHoverColor();
             }
         }
     }
