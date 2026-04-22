@@ -16,6 +16,17 @@ public class PlayerHand : MonoBehaviour
         set
         {
             _heldIngredient = value;
+            
+            // Eğer elimize yeni bir malzeme aldıysak, ekrandaki her şeyin üstünde görünsün
+            if (_heldIngredient != null)
+            {
+                SpriteRenderer sr = _heldIngredient.GetComponent<SpriteRenderer>();
+                if (sr != null)
+                {
+                    sr.sortingOrder = 100;
+                }
+            }
+            
             OnHeldIngredientChanged?.Invoke();
         }
     }
