@@ -116,10 +116,44 @@ public class BellController : MonoBehaviour
             }
         }
 
+        // Çiğ veya yanık köfte cezası
+        int penalty = 0;
+        foreach (var item in stack)
+        {
+            if (item.type == IngredientType.RawPatty || item.type == IngredientType.BurntPatty)
+            {
+                penalty++;
+            }
+        }
+        totalCorrect = Mathf.Max(0, totalCorrect - penalty);
+
         float accuracyPercent = 0f;
         if (totalRequested > 0)
         {
             accuracyPercent = ((float)totalCorrect / totalRequested) * 100f;
+        }
+
+        // --- EKONOMİ HESABI ---
+        float totalCostOfRequested = 0f;
+        // Müşterinin TAM OLARAK istediği siparişin masrafı (Ekmekler dahil)
+        foreach (var req in requestedOrder)
+        {
+            totalCostOfRequested += GameManager.Instance.GetIngredientCost(req.ingredient) * req.count;
+        }
+        totalCostOfRequested += GameManager.Instance.GetIngredientCost(IngredientType.BottomBun);
+        totalCostOfRequested += GameManager.Instance.GetIngredientCost(IngredientType.TopBun);
+
+        // Kâr marjı: GameManager'dan alınır
+        float multiplier = GameManager.Instance != null ? GameManager.Instance.profitMultiplier : 2f;
+        float baseSellPrice = totalCostOfRequested * multiplier;
+        
+        // Kazanç, doğruluk oranıyla çarpılır ve en yakın 10 kuruşa yuvarlanır (örn: 5.54 -> 5.50, 3.67 -> 3.70)
+        float rawEarnings = baseSellPrice * (accuracyPercent / 100f);
+        float finalEarnings = Mathf.Round(rawEarnings * 10f) / 10f;
+
+        if (finalEarnings > 0f)
+        {
+            GameManager.Instance.AddMoney(finalEarnings);
         }
 
         // Log çıkart
@@ -137,6 +171,8 @@ public class BellController : MonoBehaviour
         }
 
         Debug.Log($"DOĞRULUK ORANI: %{accuracyPercent:F1} ({totalCorrect} / {totalRequested})");
+        Debug.Log($"[Hesap] Toplam Maliyet (Ekmekler Dahil): {totalCostOfRequested:F2}$ -> Hedef Satış: {baseSellPrice:F2}$");
+        Debug.Log($"KAZANÇ: +{finalEarnings:F2}$");
         Debug.Log("============================");
 
         // Müşteriye gitmesini ve animasyonu başlatmasını söyle

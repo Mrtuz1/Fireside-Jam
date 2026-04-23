@@ -99,6 +99,13 @@ public class ContainerInstance : MonoBehaviour
                     }
                 }
 
+                // Masrafı düş
+                if (GameManager.Instance != null)
+                {
+                    float cost = GameManager.Instance.GetIngredientCost(typeToSpawn);
+                    GameManager.Instance.RemoveMoney(cost);
+                }
+
                 IngredientInstance newIngredient = Instantiate(PlayerHand.Instance.ingredientPrefab);
                 newIngredient.Initialize(typeToSpawn);
                 newIngredient.isHolding = true;
@@ -122,6 +129,13 @@ public class ContainerInstance : MonoBehaviour
             if (isMatch)
             {
                 // Mouse is holding a matching ingredient: destroy the held ingredient
+                // Masrafı iade et
+                if (GameManager.Instance != null)
+                {
+                    float refund = GameManager.Instance.GetIngredientCost(handType);
+                    GameManager.Instance.AddMoney(refund);
+                }
+
                 Destroy(PlayerHand.Instance.heldIngredient.gameObject);
                 PlayerHand.Instance.heldIngredient = null;
                 

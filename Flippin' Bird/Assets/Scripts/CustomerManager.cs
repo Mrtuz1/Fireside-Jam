@@ -79,6 +79,14 @@ public class CustomerManager : MonoBehaviour
     public Sprite[] emojiSprites;
     public SpriteRenderer emojiRenderer;
 
+    [Header("Patience System")]
+    public float maxWaitTime = 20f;
+    public SpriteRenderer patienceRenderer;
+    [Tooltip("4 adet bekleme durumu sprite'ı. 0: En mutlu, 3: Sinirli")]
+    public Sprite[] patienceSprites;
+    private float currentWaitTime = 0f;
+    private bool isWaiting = false;
+
     // -------------------------------------------------------
 
     private void Awake()
@@ -92,11 +100,69 @@ public class CustomerManager : MonoBehaviour
         SpawnNewCustomer();
     }
 
+    private void Update()
+    {
+        if (isWaiting && !isOrderCompleted)
+        {
+            currentWaitTime += Time.deltaTime;
+            UpdatePatienceVisuals();
+
+            if (currentWaitTime >= maxWaitTime)
+            {
+                // Süre bitti, müşteri sinirlenip gidiyor
+                isWaiting = false;
+                CustomerFailed();
+            }
+        }
+    }
+
     public void SpawnNewCustomer()
     {
         GenerateRandomCustomer();
-        // İleride gün sayısını oyunu yöneten ana bir scriptten çekebiliriz. Şimdilik testDayNumber kullanıyoruz.
-        GenerateOrder(testDayNumber);
+        // Gün sayısını GameManager'dan alıyoruz
+        int currentDay = GameManager.Instance != null ? GameManager.Instance.currentDay : 1;
+        GenerateOrder(currentDay);
+
+        // Bekleme süresini sıfırla ve başlat
+        currentWaitTime = 0f;
+        isWaiting = true;
+        UpdatePatienceVisuals();
+    }
+
+    private void UpdatePatienceVisuals()
+    {
+        if (patienceRenderer == null || patienceSprites == null || patienceSprites.Length == 0) return;
+
+        float ratio = currentWaitTime / maxWaitTime;
+        int index = 0;
+
+        if (ratio < 0.25f) index = 0;
+        else if (ratio < 0.5f) index = 1;
+        else if (ratio < 0.75f) index = 2;
+        else index = 3;
+
+        index = Mathf.Clamp(index, 0, patienceSprites.Length - 1);
+        patienceRenderer.sprite = patienceSprites[index];
+    }
+
+    private void CustomerFailed()
+    {
+        isOrderCompleted = true; // Zile basılmasını engelle
+        
+        // 5$ ceza
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RemoveMoney(5f);
+        }
+
+        // Tabağı temizle
+        if (PlateManager.Instance != null)
+        {
+            PlateManager.Instance.ClearPlate();
+        }
+
+        // Müşteri %0 doğrulukla (en mutsuz) gider
+        Leave(0f);
     }
 
     // -------------------------------------------------------
@@ -115,6 +181,7 @@ public class CustomerManager : MonoBehaviour
         SetCharacterColor(new Color(0, 0, 0, 0)); // Siyah ve şeffaf başla
         
         if (emojiRenderer != null) emojiRenderer.gameObject.SetActive(false);
+        if (patienceRenderer != null) patienceRenderer.gameObject.SetActive(true);
 
         LoadSpritesIfNeeded();
 
@@ -197,6 +264,9 @@ public class CustomerManager : MonoBehaviour
             if (part != null) Destroy(part);
         }
         _activeBubbleParts.Clear();
+
+        isWaiting = false;
+        if (patienceRenderer != null) patienceRenderer.gameObject.SetActive(false);
 
         // Emoji gösterimi
         if (emojiRenderer != null && emojiSprites != null && emojiSprites.Length >= 5)
@@ -306,8 +376,6 @@ public class CustomerManager : MonoBehaviour
     // Sipariş (Order) Sistemi
     // -------------------------------------------------------
     [Header("Order System")]
-    [Tooltip("Test için gün sayısı (Q'ya basarak test edebilirsiniz)")]
-    public int testDayNumber = 1;
 
     public Transform orderBubbleAnchor;
     public GameObject bubbleStartPrefab;

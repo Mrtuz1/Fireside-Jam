@@ -18,6 +18,10 @@ public class GrillSlot : MonoBehaviour
     public float blinkSpeed = 0.5f; // Controls how fast the slot blinks
     private float cookTimer = 0f;
 
+    [Header("Effects")]
+    [Tooltip("Pişme animasyonu objesi. Pişerken açılır, boşken veya tamamen yanınca kapanır.")]
+    public GameObject cookingAnimation;
+
     private Color originalColor;
     private bool isBlinking = false;
 
@@ -85,6 +89,16 @@ public class GrillSlot : MonoBehaviour
 
     private void HandleCooking()
     {
+        if (cookingAnimation != null)
+        {
+            // Izgarada bir şey var ve henüz kömür (status 9) olmamışsa animasyonu çalıştır
+            bool isCooking = (onGrillObject != null && onGrillObject.cookingStatus < 9);
+            if (cookingAnimation.activeSelf != isCooking)
+            {
+                cookingAnimation.SetActive(isCooking);
+            }
+        }
+
         if (onGrillObject != null)
         {
             // Only cook if status is less than 9 (9 = completely burnt)
