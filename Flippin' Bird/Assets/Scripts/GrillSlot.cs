@@ -154,6 +154,7 @@ public class GrillSlot : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (PlayerHand.Instance == null) return;
 
         bool holdingPatty = false;

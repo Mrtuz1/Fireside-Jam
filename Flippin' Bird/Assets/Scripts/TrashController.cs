@@ -38,6 +38,7 @@ public class TrashController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (PlayerHand.Instance != null && PlayerHand.Instance.heldIngredient != null)
         {
             // Elimizdekini yok et

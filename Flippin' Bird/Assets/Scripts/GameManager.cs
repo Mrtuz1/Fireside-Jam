@@ -27,6 +27,20 @@ public class GameManager : MonoBehaviour
     [Tooltip("Kayan yazının nerede çıkacağı. Boş bırakılırsa ana paranın bulunduğu yerden çıkar.")]
     [SerializeField] private Transform floatingTextSpawnPoint;
 
+    [Header("Day Cycle Settings")]
+    public float dayDuration = 120f; // 2 dakika
+    public float baseDailyRent = 25f; // Başlangıç kirası
+    public float rentMultiplier = 1.3f; // Her gün kiranın katlanma oranı
+    private float currentRent;
+    public bool isDayActive = false;
+    private float dayTimer;
+
+    [Header("Day Cycle UI")]
+    public TMP_Text timerText;
+    public GameObject endOfDayCanvas;
+    public GameObject gameOverCanvas;
+    public TMP_Text endOfDaySummaryText;
+
     private void Awake()
     {
         if (Instance == null)
@@ -48,14 +62,49 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        ResetGame();
+        InitializeGameVariables();
     }
 
-    public void ResetGame()
+    private void Update()
+    {
+        if (isDayActive)
+        {
+            dayTimer -= Time.deltaTime;
+            UpdateTimerUI();
+
+            if (dayTimer <= 0f)
+            {
+                EndDay();
+            }
+        }
+    }
+
+    private void UpdateTimerUI()
+    {
+        if (timerText != null)
+        {
+            int minutes = Mathf.FloorToInt(dayTimer / 60f);
+            int seconds = Mathf.FloorToInt(dayTimer % 60f);
+            timerText.text = $"{minutes}:{seconds:00}";
+        }
+    }
+
+    private void InitializeGameVariables()
     {
         currentDay = 1;
         money = 20f;
         sanity = 100;
+        currentRent = baseDailyRent;
+
+        dayTimer = dayDuration;
+        isDayActive = true;
+        Time.timeScale = 1f;
+
+        if (endOfDayCanvas != null) endOfDayCanvas.SetActive(false);
+        if (gameOverCanvas != null) gameOverCanvas.SetActive(false);
+
+        if (moneyText != null) moneyText.gameObject.SetActive(true);
+        if (timerText != null) timerText.gameObject.SetActive(true);
 
         OnDayChanged?.Invoke(currentDay);
         OnMoneyChanged?.Invoke(money);
@@ -142,9 +191,88 @@ public class GameManager : MonoBehaviour
     public void NextDay()
     {
         currentDay++;
+        currentRent *= rentMultiplier; // Kirayı katla
         
         OnDayChanged?.Invoke(currentDay);
-        Debug.Log($"[GameManager] Yeni güne geçildi. Gün: {currentDay}");
+        Debug.Log($"[GameManager] Yeni güne geçildi. Gün: {currentDay}, Yeni Kira: {currentRent:F2}$");
+    }
+
+    private void EndDay()
+    {
+        isDayActive = false;
+        Time.timeScale = 0f; // Oyunu durdur, ocaktakiler yanmasın
+
+        // HUD'ı gizle
+        if (moneyText != null) moneyText.gameObject.SetActive(false);
+        if (timerText != null) timerText.gameObject.SetActive(false);
+
+        // Eldeki malzemeyi sil
+        if (PlayerHand.Instance != null && PlayerHand.Instance.heldIngredient != null)
+        {
+            Destroy(PlayerHand.Instance.heldIngredient.gameObject);
+            PlayerHand.Instance.heldIngredient = null;
+        }
+
+        // Müşteriyi gönder
+        if (CustomerManager.Instance != null)
+        {
+            CustomerManager.Instance.EndDayForceLeave();
+        }
+
+        // Kirayı kes
+        money -= currentRent;
+        OnMoneyChanged?.Invoke(money);
+
+        if (money < 0f)
+        {
+            // Game Over
+            if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
+        }
+        else
+        {
+            // Next Day Screen
+            if (endOfDayCanvas != null)
+            {
+                endOfDayCanvas.SetActive(true);
+                if (endOfDaySummaryText != null)
+                {
+                    float nextRent = currentRent * rentMultiplier;
+                    endOfDaySummaryText.text = 
+                        $"DAY {currentDay} COMPLETED!\n\n" +
+                        $"Rent Paid: -${currentRent:F2}\n" +
+                        $"Remaining Money: ${money:F2}\n\n" +
+                        $"WARNING: Tomorrow's rent will be ${nextRent:F2}!\n" +
+                        $"Work faster or risk losing it all!";
+                }
+            }
+        }
+    }
+
+    public void StartNextDay()
+    {
+        if (endOfDayCanvas != null) endOfDayCanvas.SetActive(false);
+        if (gameOverCanvas != null) gameOverCanvas.SetActive(false);
+
+        NextDay(); // currentDay++
+        
+        dayTimer = dayDuration;
+        isDayActive = true;
+        Time.timeScale = 1f;
+
+        if (moneyText != null) moneyText.gameObject.SetActive(true);
+        if (timerText != null) timerText.gameObject.SetActive(true);
+
+        if (CustomerManager.Instance != null)
+        {
+            CustomerManager.Instance.SpawnNewCustomer();
+        }
+    }
+
+    public void RestartGame()
+    {
+        // Sahnemizi baştan yükler, böylece her şey (ızgara, çöpler vb) sıfırlanır
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
     // ==========================================

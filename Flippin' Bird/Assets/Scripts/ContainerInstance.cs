@@ -77,6 +77,7 @@ public class ContainerInstance : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (PlayerHand.Instance == null) return;
 
         if (PlayerHand.Instance.heldIngredient == null)

@@ -73,6 +73,7 @@ public class CustomerManager : MonoBehaviour
     public Transform exitPos;
     public float leaveDuration = 3f; // Müşterinin çıkışa yürüme süresi (daha yavaş)
     private bool isLeaving = false;
+    private Vector3 counterPos; // Kasanın önündeki kalıcı pozisyon
 
     [Header("Emojis")]
     [Tooltip("0: En iyi (81-100), 1: (61-80), 2: (41-60), 3: (21-40), 4: En kötü (0-20)")]
@@ -93,6 +94,8 @@ public class CustomerManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        counterPos = transform.position; // Oyun başında nerede duruyorsa orası counterPos'tur
     }
 
     private void Start()
@@ -165,6 +168,27 @@ public class CustomerManager : MonoBehaviour
         Leave(0f);
     }
 
+    public void EndDayForceLeave()
+    {
+        StopAllCoroutines();
+        isWaiting = false;
+        isOrderCompleted = true; // Zile basılmasını engelle
+
+        // Sipariş baloncuğunu temizle
+        foreach (var part in _activeBubbleParts)
+        {
+            if (part != null) Destroy(part);
+        }
+        _activeBubbleParts.Clear();
+
+        if (emojiRenderer != null) emojiRenderer.gameObject.SetActive(false);
+        if (patienceRenderer != null) patienceRenderer.gameObject.SetActive(false);
+        
+        // Karakteri görünmez yap ve geri çek
+        SetCharacterColor(new Color(0, 0, 0, 0));
+        if (startPos != null) transform.position = startPos.position;
+    }
+
     // -------------------------------------------------------
 
     /// <summary>
@@ -207,14 +231,24 @@ public class CustomerManager : MonoBehaviour
         float duration = 0.4f; // 0.4 saniyede hızlıca belirsin
         float elapsed = 0f;
         
+        Vector3 startLoc = startPos != null ? startPos.position : counterPos - new Vector3(5f, 0f, 0f);
+        Vector3 endLoc = counterPos; // Hedefimiz kasanın önü
+        
+        transform.position = startLoc;
+
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
             float t = elapsed / duration;
+            
+            // Hem pozisyonu sayaca doğru getir hem de şeffaflığı aç
+            transform.position = Vector3.Lerp(startLoc, endLoc, t);
             SetCharacterColor(Color.Lerp(new Color(0, 0, 0, 0), Color.white, t));
+            
             yield return null;
         }
         
+        transform.position = endLoc;
         SetCharacterColor(Color.white);
     }
 

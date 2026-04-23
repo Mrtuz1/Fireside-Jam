@@ -65,6 +65,7 @@ public class BellController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (canBePressed)
         {
             // Siparişi tamamla
