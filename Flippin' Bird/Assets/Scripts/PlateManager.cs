@@ -55,6 +55,24 @@ public class PlateManager : MonoBehaviour
         return ingredientStack.Count == 0;
     }
 
+    public List<IngredientInstance> GetIngredientStack()
+    {
+        return ingredientStack;
+    }
+
+    public void ClearPlate()
+    {
+        foreach (var ingredient in ingredientStack)
+        {
+            if (ingredient != null)
+            {
+                Destroy(ingredient.gameObject);
+            }
+        }
+        ingredientStack.Clear();
+        UpdateCollider();
+    }
+
     private void OnMouseDown()
     {
         if (PlayerHand.Instance == null) return;

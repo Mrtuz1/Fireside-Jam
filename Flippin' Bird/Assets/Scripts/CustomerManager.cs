@@ -17,6 +17,9 @@ using UnityEngine;
 /// </summary>
 public class CustomerManager : MonoBehaviour
 {
+    public static CustomerManager Instance { get; private set; }
+    public bool isOrderCompleted = false;
+
     [Header("Sprite Sheet")]
     [Tooltip("FlippinBird-Sheet texture asset'ini buraya sürükleyin.")]
     public Texture2D spriteSheet;
@@ -65,16 +68,35 @@ public class CustomerManager : MonoBehaviour
     private string _prevCloth;
 
     // -------------------------------------------------------
+    [Header("Movement Settings")]
+    public Transform startPos;
+    public Transform exitPos;
+    public float leaveDuration = 3f; // Müşterinin çıkışa yürüme süresi (daha yavaş)
+    private bool isLeaving = false;
+
+    [Header("Emojis")]
+    [Tooltip("0: En iyi (81-100), 1: (61-80), 2: (41-60), 3: (21-40), 4: En kötü (0-20)")]
+    public Sprite[] emojiSprites;
+    public SpriteRenderer emojiRenderer;
+
+    // -------------------------------------------------------
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
 
     private void Start()
     {
-        GenerateRandomCustomer();
+        SpawnNewCustomer();
     }
 
-    private void Update()
+    public void SpawnNewCustomer()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-            GenerateRandomCustomer();
+        GenerateRandomCustomer();
+        // İleride gün sayısını oyunu yöneten ana bir scriptten çekebiliriz. Şimdilik testDayNumber kullanıyoruz.
+        GenerateOrder(testDayNumber);
     }
 
     // -------------------------------------------------------
@@ -86,6 +108,14 @@ public class CustomerManager : MonoBehaviour
     [ContextMenu("Generate Random Customer")]
     public void GenerateRandomCustomer()
     {
+        StopAllCoroutines();
+        isLeaving = false;
+        
+        if (startPos != null) transform.position = startPos.position;
+        SetCharacterColor(new Color(0, 0, 0, 0)); // Siyah ve şeffaf başla
+        
+        if (emojiRenderer != null) emojiRenderer.gameObject.SetActive(false);
+
         LoadSpritesIfNeeded();
 
         if (_allSprites == null || _allSprites.Length == 0)
@@ -101,6 +131,24 @@ public class CustomerManager : MonoBehaviour
         AssignSprite(noseRenderer,  NoseNames,  ref _prevNose);
         AssignSprite(mouthRenderer, MouthNames, ref _prevMouth);
         AssignSprite(clothRenderer, ClothNames, ref _prevCloth);
+
+        StartCoroutine(EnterRoutine());
+    }
+
+    private System.Collections.IEnumerator EnterRoutine()
+    {
+        float duration = 0.4f; // 0.4 saniyede hızlıca belirsin
+        float elapsed = 0f;
+        
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+            SetCharacterColor(Color.Lerp(new Color(0, 0, 0, 0), Color.white, t));
+            yield return null;
+        }
+        
+        SetCharacterColor(Color.white);
     }
 
     // -------------------------------------------------------
@@ -137,6 +185,80 @@ public class CustomerManager : MonoBehaviour
         {
             Debug.LogWarning($"[CustomerManager] '{chosenName}' sprite'ı bulunamadı.");
         }
+    }
+
+    public void Leave(float accuracyPercent)
+    {
+        Debug.Log($"[CustomerManager] Müşteri ayrılıyor. Başarı: %{accuracyPercent:F1}");
+        
+        // Ayrılırken sipariş baloncuğunu temizle
+        foreach (var part in _activeBubbleParts)
+        {
+            if (part != null) Destroy(part);
+        }
+        _activeBubbleParts.Clear();
+
+        // Emoji gösterimi
+        if (emojiRenderer != null && emojiSprites != null && emojiSprites.Length >= 5)
+        {
+            int emojiIndex = 0;
+            if (accuracyPercent <= 20f) emojiIndex = 4;
+            else if (accuracyPercent <= 40f) emojiIndex = 3;
+            else if (accuracyPercent <= 60f) emojiIndex = 2;
+            else if (accuracyPercent <= 80f) emojiIndex = 1;
+            else emojiIndex = 0; // 81 - 100
+
+            emojiRenderer.sprite = emojiSprites[emojiIndex];
+            emojiRenderer.gameObject.SetActive(true);
+        }
+
+        StartCoroutine(LeaveRoutine());
+    }
+
+    private System.Collections.IEnumerator LeaveRoutine()
+    {
+        isLeaving = true;
+        float elapsed = 0f;
+        
+        Vector3 startLoc = transform.position;
+        Vector3 endLoc = exitPos != null ? exitPos.position : startLoc + new Vector3(5f, 0f, 0f); // Default sağa
+        
+        while (elapsed < leaveDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / leaveDuration;
+            
+            // Konumu ilerlet
+            transform.position = Vector3.Lerp(startLoc, endLoc, t);
+            
+            // Renkleri siyaha (rgb=0) ve şeffafa (a=0) doğru kaydır
+            Color currentColor = Color.Lerp(Color.white, new Color(0, 0, 0, 0), t);
+            SetCharacterColor(currentColor);
+            
+            yield return null;
+        }
+        
+        transform.position = endLoc;
+        SetCharacterColor(new Color(0, 0, 0, 0));
+        isLeaving = false;
+
+        // Karakter tamamen yok olunca emojiyi de gizle
+        if (emojiRenderer != null) emojiRenderer.gameObject.SetActive(false);
+
+        // 2 saniye bekle ve yeni müşteri getir
+        yield return new WaitForSeconds(2f);
+        SpawnNewCustomer();
+    }
+
+    private void SetCharacterColor(Color c)
+    {
+        if (hairRenderer != null) hairRenderer.color = c;
+        if (faceRenderer != null) faceRenderer.color = c;
+        if (eyeRenderer != null) eyeRenderer.color = c;
+        if (noseRenderer != null) noseRenderer.color = c;
+        if (mouthRenderer != null) mouthRenderer.color = c;
+        if (clothRenderer != null) clothRenderer.color = c;
+        // Emojinin rengi etkilenmesin diye buradan kaldırıldı
     }
 
     /// <summary>
@@ -178,5 +300,175 @@ public class CustomerManager : MonoBehaviour
         Debug.LogWarning("[CustomerManager] Build modunda sprite yükleme için " +
                          "SpriteAtlas veya Addressables kullanın.");
 #endif
+    }
+
+    // -------------------------------------------------------
+    // Sipariş (Order) Sistemi
+    // -------------------------------------------------------
+    [Header("Order System")]
+    [Tooltip("Test için gün sayısı (Q'ya basarak test edebilirsiniz)")]
+    public int testDayNumber = 1;
+
+    public Transform orderBubbleAnchor;
+    public GameObject bubbleStartPrefab;
+    public GameObject bubbleMiddlePrefab;
+    public GameObject bubbleEndPrefab;
+    [Header("Bubble Offsets")]
+    [Tooltip("Başlangıç parçasından ilk orta parçaya olan uzaklık")]
+    public float offsetStartToMiddle = 0.8f;
+    [Tooltip("Orta parçaların birbirine olan uzaklığı")]
+    public float offsetMiddleToMiddle = 1.4f;
+    [Tooltip("Son orta parçadan bitiş parçasına olan uzaklık")]
+    public float offsetMiddleToFinish = 0.4f;
+    
+    [System.Serializable]
+    public class OrderItem
+    {
+        public IngredientType ingredient;
+        public int count;
+    }
+
+    [System.Serializable]
+    public struct OrderIngredientData
+    {
+        public IngredientType type;
+        public Sprite icon;
+    }
+    public OrderIngredientData[] orderIngredientIcons;
+
+    // Her siparişi sonradan kontrol edebilmek için tuttuğumuz liste
+    [Header("Current Active Order")]
+    public System.Collections.Generic.List<OrderItem> currentActiveOrder = new System.Collections.Generic.List<OrderItem>();
+
+    // Aktif baloncuk parçalarını tutmak için
+    private System.Collections.Generic.List<GameObject> _activeBubbleParts = new System.Collections.Generic.List<GameObject>();
+
+    /// <summary>
+    /// Gün sayısına göre müşterinin siparişini oluşturur ve konuşma baloncuğunu çizer.
+    /// </summary>
+    public void GenerateOrder(int dayNumber)
+    {
+        // Önceki baloncuğu temizle
+        foreach (var part in _activeBubbleParts)
+        {
+            if (part != null) Destroy(part);
+        }
+        _activeBubbleParts.Clear();
+        currentActiveOrder.Clear();
+        isOrderCompleted = false;
+
+        // 1. Kural: Kesinlikle burger köftesi olmalı (Maksimum 5)
+        int pattyCount = Random.Range(1, Mathf.Clamp(1 + dayNumber / 2, 2, 6)); // max 5
+        currentActiveOrder.Add(new OrderItem { ingredient = IngredientType.CookedPatty, count = pattyCount });
+
+        // Tüm malzemeler 1. günden itibaren açık
+        System.Collections.Generic.List<IngredientType> availableExtras = new System.Collections.Generic.List<IngredientType>
+        {
+            IngredientType.Cheese,
+            IngredientType.Lettuce,
+            IngredientType.Tomato
+        };
+
+        // Çeşitleri karıştır
+        for (int i = 0; i < availableExtras.Count; i++)
+        {
+            int r = Random.Range(i, availableExtras.Count);
+            var temp = availableExtras[i];
+            availableExtras[i] = availableExtras[r];
+            availableExtras[r] = temp;
+        }
+
+        // Kaç ekstra malzeme ekleneceğini belirle (0 ile mevcut ekstra çeşidi arası)
+        int numExtras = Random.Range(0, availableExtras.Count + 1);
+
+        for (int i = 0; i < numExtras; i++)
+        {
+            IngredientType extra = availableExtras[i];
+            // 2. Kural: Her malzeme için maksimum 5
+            int maxCount = 5;
+
+            // 3. Kural: Domates ve marul köfte sayısından fazla olmamalı (aynı olabilir)
+            if (extra == IngredientType.Lettuce || extra == IngredientType.Tomato)
+            {
+                maxCount = pattyCount;
+            }
+
+            // Güne göre zorluk artsın ama kural dışına çıkmasın
+            int maxForThisDay = Mathf.Clamp(1 + (dayNumber / 2), 1, maxCount);
+            int extraCount = Random.Range(1, maxForThisDay + 1);
+            
+            currentActiveOrder.Add(new OrderItem { ingredient = extra, count = extraCount });
+        }
+
+        // 4. Baloncuğu görsel olarak oluştur
+        if (orderBubbleAnchor == null) 
+        {
+            Debug.LogWarning("[CustomerManager] orderBubbleAnchor atanmamış!");
+            return;
+        }
+
+        float currentX = 0f;
+
+        // Başlangıç parçası
+        if (bubbleStartPrefab != null)
+        {
+            GameObject startPart = Instantiate(bubbleStartPrefab, orderBubbleAnchor);
+            startPart.transform.localPosition = new Vector3(currentX, 0, 0);
+            _activeBubbleParts.Add(startPart);
+            currentX += offsetStartToMiddle;
+        }
+
+        // Orta parçalar (Her malzeme çeşidi için 1 tane)
+        for (int i = 0; i < currentActiveOrder.Count; i++)
+        {
+            if (bubbleMiddlePrefab != null)
+            {
+                GameObject middlePart = Instantiate(bubbleMiddlePrefab, orderBubbleAnchor);
+                middlePart.transform.localPosition = new Vector3(currentX, 0, 0);
+                _activeBubbleParts.Add(middlePart);
+
+                // Malzeme ikonunu ve sayısını ayarla
+                SpriteRenderer iconRenderer = middlePart.transform.Find("Icon")?.GetComponent<SpriteRenderer>();
+                TMPro.TextMeshPro countText = middlePart.transform.Find("CountText")?.GetComponent<TMPro.TextMeshPro>();
+
+                if (iconRenderer != null)
+                {
+                    iconRenderer.sprite = GetIngredientIcon(currentActiveOrder[i].ingredient);
+                }
+                if (countText != null)
+                {
+                    countText.text = "x" + currentActiveOrder[i].count.ToString();
+                }
+
+                // Sonraki parça için offset'i ayarla
+                if (i == currentActiveOrder.Count - 1)
+                {
+                    // Son orta parçadaysak bitiş parçasına olan mesafeyi ekle
+                    currentX += offsetMiddleToFinish;
+                }
+                else
+                {
+                    // Başka orta parça gelecekse orta parçalar arası mesafeyi ekle
+                    currentX += offsetMiddleToMiddle;
+                }
+            }
+        }
+
+        // Bitiş parçası
+        if (bubbleEndPrefab != null)
+        {
+            GameObject endPart = Instantiate(bubbleEndPrefab, orderBubbleAnchor);
+            endPart.transform.localPosition = new Vector3(currentX, 0, 0);
+            _activeBubbleParts.Add(endPart);
+        }
+    }
+
+    private Sprite GetIngredientIcon(IngredientType type)
+    {
+        foreach (var item in orderIngredientIcons)
+        {
+            if (item.type == type) return item.icon;
+        }
+        return null;
     }
 }
