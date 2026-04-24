@@ -24,6 +24,12 @@ public class BlackjackManager : MonoBehaviour
     [SerializeField] private GameObject summaryPanel;
     public TextMeshProUGUI summaryText;   // summaryPanel içindeki text — Panel'in child'ı
 
+    [Header("Bet System UI")]
+    public GameObject computerPanel;
+    public GameObject betPanel;
+    public TextMeshProUGUI currentBetText;
+    private float currentBet = 0f;
+
     [Header("Game Data")]
     public List<CardData> allCards;
     public Sprite cardBackSprite;
@@ -50,7 +56,48 @@ public class BlackjackManager : MonoBehaviour
     void Start()
     {
         summaryPanel.SetActive(false);
-        PrepareGame();
+        if (computerPanel != null) computerPanel.SetActive(false);
+        if (betPanel != null) betPanel.SetActive(true);
+        currentBet = 0;
+        UpdateBetUI();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnDayEnded += HandleDayEnd;
+            GameManager.Instance.OnDayChanged += HandleDayStart;
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnDayEnded -= HandleDayEnd;
+            GameManager.Instance.OnDayChanged -= HandleDayStart;
+        }
+    }
+
+    private void HandleDayEnd()
+    {
+        // Oyun devam ediyorsa (oyun ekranı açık ve bitmemişse) parayı iade et
+        if (!gameOver && computerPanel != null && computerPanel.activeSelf)
+        {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.AddMoney(currentBet);
+            }
+        }
+
+        // Tüm panelleri kapat
+        summaryPanel.SetActive(false);
+        if (computerPanel != null) computerPanel.SetActive(false);
+        if (betPanel != null) betPanel.SetActive(false);
+    }
+
+    private void HandleDayStart(int newDay)
+    {
+        // Yeni gün başladığında sistemi baştan başlat (bet ekranı açılsın vb.)
+        Restart();
     }
 
     // ─────────────────────────────────────────
@@ -298,12 +345,12 @@ public class BlackjackManager : MonoBehaviour
     // ─────────────────────────────────────────
     void UpdateScoreUI(bool revealDealer = false)
     {
-        playerScoreText.text = "Player: " + SumValues(playerValues);
+        playerScoreText.text = "Player:\n " + SumValues(playerValues);
 
         if (revealDealer)
-            dealerScoreText.text = "Dealer: " + GetDealerScore();
+            dealerScoreText.text = "Dealer:\n " + GetDealerScore();
         else
-            dealerScoreText.text = "Dealer: ?";
+            dealerScoreText.text = "Dealer:\n ?";
     }
 
     // ─────────────────────────────────────────
@@ -316,9 +363,15 @@ public class BlackjackManager : MonoBehaviour
         summaryPanel.SetActive(true);
 
         if (playerWins)
-            summaryText.text = "WIN!\n+$50";
+        {
+            float winAmount = currentBet * 2f;
+            if (GameManager.Instance != null) GameManager.Instance.AddMoney(winAmount);
+            summaryText.text = $"YOU WON!\n+${winAmount:F2}";
+        }
         else
-            summaryText.text = "LOSE!\n-$50";
+        {
+            summaryText.text = $"YOU LOST!\n-${currentBet:F2}";
+        }
 
         UpdateScoreUI(revealDealer: true);
     }
@@ -328,7 +381,9 @@ public class BlackjackManager : MonoBehaviour
         gameOver = true;
         SetPlayerButtons(false);
         summaryPanel.SetActive(true);
-        summaryText.text = "DRAW!\n$0";
+
+        if (GameManager.Instance != null) GameManager.Instance.AddMoney(currentBet);
+        summaryText.text = $"DRAW!\n+${currentBet:F2}";
         UpdateScoreUI(revealDealer: true);
     }
 
@@ -356,6 +411,52 @@ public class BlackjackManager : MonoBehaviour
     // ─────────────────────────────────────────
     public void Restart()
     {
+        summaryPanel.SetActive(false);
+        if (computerPanel != null) computerPanel.SetActive(false);
+        if (betPanel != null) betPanel.SetActive(true);
+        
+        currentBet = 0;
+        UpdateBetUI();
+    }
+
+    // ─────────────────────────────────────────
+    //  Bet System
+    // ─────────────────────────────────────────
+    public void ModifyBet(float amount)
+    {
+        currentBet += amount;
+        if (currentBet < 0) currentBet = 0;
+        
+        if (GameManager.Instance != null && currentBet > GameManager.Instance.money)
+        {
+            currentBet = GameManager.Instance.money;
+        }
+        UpdateBetUI();
+    }
+
+    private void UpdateBetUI()
+    {
+        if (currentBetText != null)
+            currentBetText.text = $"${currentBet:F2}";
+    }
+
+    public void StartBetGame()
+    {
+        if (GameManager.Instance != null && currentBet > GameManager.Instance.money)
+        {
+            currentBet = GameManager.Instance.money;
+            UpdateBetUI();
+            return; // Yeterli bakiye yoksa beti maksimuma çekip bekle
+        }
+
+        if (betPanel != null) betPanel.SetActive(false);
+        if (computerPanel != null) computerPanel.SetActive(true);
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.RemoveMoney(currentBet);
+        }
+
         PrepareGame();
     }
 }

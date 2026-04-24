@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     // Diğer scriptlerin abone olabileceği Eventler (Olaylar)
     public event Action<int> OnDayChanged;
+    public event Action OnDayEnded;
     public event Action<float> OnMoneyChanged;
     public event Action<int> OnSanityChanged;
 
@@ -199,6 +200,8 @@ public class GameManager : MonoBehaviour
 
     private void EndDay()
     {
+        OnDayEnded?.Invoke();
+
         isDayActive = false;
         Time.timeScale = 0f; // Oyunu durdur, ocaktakiler yanmasın
 
