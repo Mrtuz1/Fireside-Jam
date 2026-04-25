@@ -12,6 +12,7 @@ public class SanityVFXManager : MonoBehaviour
     private ChromaticAberration chromatic;
     private ColorAdjustments colorAdjustments;
     private FilmGrain filmGrain;
+    private LensDistortion lensDistortion;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class SanityVFXManager : MonoBehaviour
             sanityVolume.profile.TryGet(out chromatic);
             sanityVolume.profile.TryGet(out colorAdjustments);
             sanityVolume.profile.TryGet(out filmGrain);
+            sanityVolume.profile.TryGet(out lensDistortion);
         }
 
         // GameManager olayına abone ol
@@ -73,14 +75,20 @@ public class SanityVFXManager : MonoBehaviour
 
         if (chromatic != null)
         {
-            // Renk kayması maks 0.4
-            chromatic.intensity.Override(dangerLevel * 0.4f);
+            // Renk kayması maks 0.3
+            chromatic.intensity.Override(dangerLevel * 0.3f);
         }
 
         if (filmGrain != null)
         {
             // Karıncalanma maks 1.0 (Tam karlanma)
             filmGrain.intensity.Override(dangerLevel * 1f);
+        }
+
+        if (lensDistortion != null)
+        {
+            // Lens bozulması: akıl sağlığı azaldıkça 0'dan -0.3'e gider
+            lensDistortion.intensity.Override(-dangerLevel * 0.3f);
         }
     }
 }

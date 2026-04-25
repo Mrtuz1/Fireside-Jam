@@ -42,6 +42,11 @@ public class GameManager : MonoBehaviour
     public bool isDayActive = false;
     private float dayTimer;
 
+    [Header("Sanity Drain")]
+    [Tooltip("Kaç saniyede bir 1 birim akıl sağlığı düşer")]
+    public float sanityDrainInterval = 3f;
+    private float sanityDrainTimer;
+
     [Header("Day Cycle UI")]
     public TMP_Text timerText;
     public GameObject endOfDayCanvas;
@@ -86,6 +91,14 @@ public class GameManager : MonoBehaviour
             {
                 EndDay();
             }
+
+            // Zamana bağlı akıl sağlığı azalması
+            sanityDrainTimer += Time.deltaTime;
+            if (sanityDrainTimer >= sanityDrainInterval)
+            {
+                sanityDrainTimer = 0f;
+                ModifySanity(-1);
+            }
         }
     }
 
@@ -107,6 +120,7 @@ public class GameManager : MonoBehaviour
         currentRent = baseDailyRent;
 
         dayTimer = dayDuration;
+        sanityDrainTimer = 0f;
         isDayActive = true;
         Time.timeScale = 1f;
 
