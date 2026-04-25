@@ -53,6 +53,9 @@ MonoBehaviour:
   dealerScoreText: {fileID: 0}
   summaryPanel: {fileID: 0}
   summaryText: {fileID: 0}
+  computerPanel: {fileID: 0}
+  betPanel: {fileID: 0}
+  currentBetText: {fileID: 0}
   allCards:
   - {fileID: 11400000, guid: 7274d69853c08c346897874a51c6503c, type: 2}
   - {fileID: 11400000, guid: 6cd2b7bff0d3a734487cd66c5da62561, type: 2}

@@ -100,10 +100,18 @@ public class ContainerInstance : MonoBehaviour
                     }
                 }
 
-                // Masrafı düş
+                // Parayı kontrol et
                 if (GameManager.Instance != null)
                 {
                     float cost = GameManager.Instance.GetIngredientCost(typeToSpawn);
+                    if (GameManager.Instance.money < cost)
+                    {
+                        Debug.LogWarning("Insufficient funds to take " + typeToSpawn);
+                        // Optionally play a sound or show a warning UI here
+                        return;
+                    }
+                    
+                    // Masrafı düş
                     GameManager.Instance.RemoveMoney(cost);
                 }
 

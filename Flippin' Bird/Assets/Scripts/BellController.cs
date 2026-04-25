@@ -157,6 +157,12 @@ public class BellController : MonoBehaviour
             GameManager.Instance.AddMoney(finalEarnings);
         }
 
+        // İstatistikleri güncelle
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.totalCustomersServed++;
+        }
+
         // Log çıkart
         Debug.Log("==== SİPARİŞ TAMAMLANDI ====");
         Debug.Log("İstenenler:");

@@ -365,11 +365,21 @@ public class BlackjackManager : MonoBehaviour
         if (playerWins)
         {
             float winAmount = currentBet * 2f;
-            if (GameManager.Instance != null) GameManager.Instance.AddMoney(winAmount);
+            if (GameManager.Instance != null) 
+            {
+                GameManager.Instance.AddMoney(winAmount);
+                GameManager.Instance.blackjackWins++;
+                GameManager.Instance.blackjackRevenue += currentBet; // Net profit is currentBet
+            }
             summaryText.text = $"YOU WON!\n+${winAmount:F2}";
         }
         else
         {
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.blackjackLosses++;
+                GameManager.Instance.blackjackRevenue -= currentBet;
+            }
             summaryText.text = $"YOU LOST!\n-${currentBet:F2}";
         }
 
@@ -442,11 +452,26 @@ public class BlackjackManager : MonoBehaviour
 
     public void StartBetGame()
     {
-        if (GameManager.Instance != null && currentBet > GameManager.Instance.money)
+        if (GameManager.Instance != null)
         {
-            currentBet = GameManager.Instance.money;
-            UpdateBetUI();
-            return; // Yeterli bakiye yoksa beti maksimuma çekip bekle
+            if (GameManager.Instance.money <= 0)
+            {
+                Debug.LogWarning("Cannot bet with 0 money!");
+                return;
+            }
+
+            if (currentBet > GameManager.Instance.money)
+            {
+                currentBet = GameManager.Instance.money;
+                UpdateBetUI();
+                return; // Yeterli bakiye yoksa beti maksimuma çekip bekle
+            }
+
+            if (currentBet <= 0)
+            {
+                Debug.LogWarning("Bet must be greater than 0!");
+                return;
+            }
         }
 
         if (betPanel != null) betPanel.SetActive(false);

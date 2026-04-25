@@ -11,6 +11,12 @@ public class GameManager : MonoBehaviour
     public float money = 20f;
     [Range(0, 100)] public int sanity = 100;
 
+    [Header("Statistics")]
+    public int totalCustomersServed = 0;
+    public int blackjackWins = 0;
+    public int blackjackLosses = 0;
+    public float blackjackRevenue = 0f;
+
     [Header("Economy Settings")]
     [Tooltip("Burgerin maliyetinin kaç katına satılacağı (Örn: 2 ise 1$ maliyetli burger 2$'a satılır, net kâr 1$ olur)")]
     public float profitMultiplier = 2f;
@@ -41,6 +47,7 @@ public class GameManager : MonoBehaviour
     public GameObject endOfDayCanvas;
     public GameObject gameOverCanvas;
     public TMP_Text endOfDaySummaryText;
+    public TMP_Text gameOverSummaryText; // New reference for summary
 
     private void Awake()
     {
@@ -158,6 +165,36 @@ public class GameManager : MonoBehaviour
         Debug.Log($"[GameManager] -{amount:F2}$ Harcandı. Güncel Kasa: {money:F2}$");
 
         SpawnFloatingText($"-${amount:F2}", Color.red);
+
+        if (money < 0f)
+        {
+            TriggerGameOver();
+        }
+    }
+
+    public void TriggerGameOver()
+    {
+        isDayActive = false;
+        Time.timeScale = 0f;
+        if (gameOverCanvas != null)
+        {
+            gameOverCanvas.SetActive(true);
+            UpdateGameOverSummary();
+        }
+    }
+
+    private void UpdateGameOverSummary()
+    {
+        if (gameOverSummaryText != null)
+        {
+            gameOverSummaryText.text = 
+                $"GAME OVER\n\n" +
+                $"Days Survived: {currentDay}\n" +
+                $"Customers Served: {totalCustomersServed}\n" +
+                $"Gambling Wins: {blackjackWins}\n" +
+                $"Gambling Losses: {blackjackLosses}\n" +
+                $"Total Gambling Revenue: ${blackjackRevenue:F2}";
+        }
     }
 
     private void SpawnFloatingText(string text, Color color)
@@ -229,7 +266,7 @@ public class GameManager : MonoBehaviour
         if (money < 0f)
         {
             // Game Over
-            if (gameOverCanvas != null) gameOverCanvas.SetActive(true);
+            TriggerGameOver();
         }
         else
         {
