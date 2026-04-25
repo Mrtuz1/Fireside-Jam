@@ -80,6 +80,8 @@ public class ContainerInstance : MonoBehaviour
         if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (PlayerHand.Instance == null) return;
 
+        if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Container");
+
         if (PlayerHand.Instance.heldIngredient == null)
         {
             // Mouse is empty: create an ingredient and hold it

@@ -42,6 +42,9 @@ public class LightFlicker : MonoBehaviour
     {
         if (light2D == null) yield break;
 
+        // Ses çal
+        if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Lamp");
+
         for (int i = 0; i < flickerCount; i++)
         {
             // Sön

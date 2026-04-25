@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Sanity Drain")]
     [Tooltip("Kaç saniyede bir 1 birim akıl sağlığı düşer")]
-    public float sanityDrainInterval = 3f;
+    public float sanityDrainInterval = 1f;
     private float sanityDrainTimer;
 
     [Header("Day Cycle UI")]

@@ -42,6 +42,7 @@ public class TrashController : MonoBehaviour
         if (PlayerHand.Instance != null && PlayerHand.Instance.heldIngredient != null)
         {
             // Elimizdekini yok et
+            if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Garbage");
             Destroy(PlayerHand.Instance.heldIngredient.gameObject);
             PlayerHand.Instance.heldIngredient = null;
             

@@ -185,6 +185,7 @@ public class GrillSlot : MonoBehaviour
             // Update visual state and reset timer
             cookTimer = 0f;
             UpdateProgressVisuals();
+            CheckAndToggleMeatSound();
         }
         // Picking Patty up from the Grill
         else if (PlayerHand.Instance.heldIngredient == null && onGrillObject != null)
@@ -204,6 +205,33 @@ public class GrillSlot : MonoBehaviour
                 progressSpriteRenderer.sprite = null;
                 progressSpriteRenderer.gameObject.SetActive(false);
             }
+            CheckAndToggleMeatSound();
+        }
+    }
+
+    private void CheckAndToggleMeatSound()
+    {
+        if (AudioManager.instance == null) return;
+        
+        GrillSlot[] allSlots = FindObjectsOfType<GrillSlot>();
+        bool anyMeat = false;
+        foreach (var slot in allSlots)
+        {
+            if (slot.onGrillObject != null)
+            {
+                anyMeat = true;
+                break;
+            }
+        }
+
+        if (anyMeat)
+        {
+            if (!AudioManager.instance.IsPlaying("Meat"))
+                AudioManager.instance.Play("Meat");
+        }
+        else
+        {
+            AudioManager.instance.Stop("Meat");
         }
     }
 }

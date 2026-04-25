@@ -1,25 +1,31 @@
--flappy bird
+sesler: 
+/buton
+/en öenmlisi: arka plan müziği fon müziği
+/burgerin pişmesi
+/para kazanma
+/malzeme koyma ve container dan alma
+zile basma 
+/müşterinin homurdanması ya da mutlu olsa 
+/yürüme sesi
 
--modular character creation
+21 de kazanma kaybetme ses efekti
 
--scene setup
+bunlar sanity e göre 
 
--character dialogue baloncuk
+/florasan cızırdama sesi
 
--malzemelerin konteynerlarına basılınca ele alınması, köftenin pişmesi, tabak üzerinde hamburger yapma
-
--müşteriler bizden random sipariş verecekler (input : gün sayısına göre burger içeriğinin artması olabilir)
-
--siparişe göre ödeme aldık
-
--gün mantığını oturt
-
--UI 
-
--Sanity bar
-
--sanity value'ya göre CRT filtre 
+/çöpe bir şey koyulurken ses
 
 
+------------
 
-ekstra: soslar (ketçap mayonez hardal)
+Fon müziği
+the groove - my feyvırıt
+
+brand new 
+flower power
+playing games
+
+------------
+
+kartların karılması check

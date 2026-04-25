@@ -68,6 +68,13 @@ public class BellController : MonoBehaviour
         if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (canBePressed)
         {
+            // Sesleri çal
+            if (AudioManager.instance != null)
+            {
+                AudioManager.instance.PlayOneShot("Bell");
+                AudioManager.instance.PlayOneShot("Register");
+            }
+
             // Siparişi tamamla
             CustomerManager.Instance.isOrderCompleted = true;
             isBlinking = false;
@@ -136,16 +143,19 @@ public class BellController : MonoBehaviour
 
         // --- EKONOMİ HESABI ---
         float totalCostOfRequested = 0f;
-        // Müşterinin TAM OLARAK istediği siparişin masrafı (Ekmekler dahil)
+        int totalIngredientCount = 2; // Başlangıçta 2 ekmek var
+        
+        // Müşterinin TAM OLARAK istediği siparişin masrafı
         foreach (var req in requestedOrder)
         {
             totalCostOfRequested += GameManager.Instance.GetIngredientCost(req.ingredient) * req.count;
+            totalIngredientCount += req.count;
         }
         totalCostOfRequested += GameManager.Instance.GetIngredientCost(IngredientType.BottomBun);
         totalCostOfRequested += GameManager.Instance.GetIngredientCost(IngredientType.TopBun);
 
-        // Kâr marjı: GameManager'dan alınır
-        float multiplier = GameManager.Instance != null ? GameManager.Instance.profitMultiplier : 2f;
+        // Kâr marjı: 1.3 ^ Toplam Malzeme Sayısı (Üstel Büyüme)
+        float multiplier = Mathf.Pow(1.3f, totalIngredientCount);
         float baseSellPrice = totalCostOfRequested * multiplier;
         
         // Kazanç, doğruluk oranıyla çarpılır ve en yakın 10 kuruşa yuvarlanır (örn: 5.54 -> 5.50, 3.67 -> 3.70)
@@ -170,8 +180,8 @@ public class BellController : MonoBehaviour
             }
             else
             {
-                // %40 -> +5, %100 -> +10
-                sanityChange = Mathf.RoundToInt(Mathf.Lerp(5, 10, (accuracyPercent - 40f) / 60f));
+                // %40 -> +10, %100 -> +20 (Sanity kazancı 2 katına çıkarıldı)
+                sanityChange = Mathf.RoundToInt(Mathf.Lerp(10, 20, (accuracyPercent - 40f) / 60f));
             }
             GameManager.Instance.ModifySanity(sanityChange);
         }

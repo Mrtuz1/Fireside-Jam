@@ -78,6 +78,8 @@ public class PlateManager : MonoBehaviour
         if (GameManager.Instance != null && !GameManager.Instance.isDayActive) return;
         if (PlayerHand.Instance == null) return;
 
+        if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("BurgerPlacement");
+
         IngredientInstance heldObj = PlayerHand.Instance.heldIngredient;
 
         // Ekranda tıklamayı algılaması için bu scriptin olduğu objede (veya child'ında) bir Collider2D olmalı.

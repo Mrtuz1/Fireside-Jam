@@ -364,13 +364,14 @@ public class BlackjackManager : MonoBehaviour
 
         if (playerWins)
         {
+            if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Register");
             float winAmount = currentBet * 2f;
             if (GameManager.Instance != null) 
             {
                 GameManager.Instance.AddMoney(winAmount);
                 GameManager.Instance.blackjackWins++;
                 GameManager.Instance.blackjackRevenue += currentBet; // Net profit is currentBet
-                GameManager.Instance.ModifySanity(5);
+                GameManager.Instance.ModifySanity(10);
             }
             summaryText.text = $"YOU WON!\n+${winAmount:F2}";
         }
@@ -413,6 +414,7 @@ public class BlackjackManager : MonoBehaviour
     // ─────────────────────────────────────────
     GameObject CreateCardUI(CardData data, Transform area, bool isHidden)
     {
+        if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("CardSlide");
         GameObject obj = Instantiate(cardPrefab, area);
         obj.GetComponent<Image>().sprite = isHidden ? cardBackSprite : data.cardSprite;
         return obj;
@@ -429,6 +431,10 @@ public class BlackjackManager : MonoBehaviour
         
         currentBet = 0;
         UpdateBetUI();
+
+        // Skorları temizle
+        if (playerScoreText != null) playerScoreText.text = "";
+        if (dealerScoreText != null) dealerScoreText.text = "";
     }
 
     // ─────────────────────────────────────────

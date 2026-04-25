@@ -152,10 +152,12 @@ public class CustomerManager : MonoBehaviour
     {
         isOrderCompleted = true; // Zile basılmasını engelle
         
-        // 5$ ceza
+        // Müşteri bekleme süresi dolarsa ceza
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.RemoveMoney(5f);
+            // Temel ceza 5$, her gün 1.3 katlanır
+            float penaltyAmount = 5f * Mathf.Pow(1.3f, GameManager.Instance.currentDay - 1);
+            GameManager.Instance.RemoveMoney(penaltyAmount);
             GameManager.Instance.ModifySanity(-10);
         }
 
@@ -229,6 +231,7 @@ public class CustomerManager : MonoBehaviour
 
     private System.Collections.IEnumerator EnterRoutine()
     {
+        if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Walking");
         float duration = 0.4f; // 0.4 saniyede hızlıca belirsin
         float elapsed = 0f;
         
@@ -315,6 +318,13 @@ public class CustomerManager : MonoBehaviour
 
             emojiRenderer.sprite = emojiSprites[emojiIndex];
             emojiRenderer.gameObject.SetActive(true);
+
+            // Ses çal
+            if (AudioManager.instance != null)
+            {
+                if (accuracyPercent <= 40f) AudioManager.instance.PlayOneShot("Angry");
+                else AudioManager.instance.PlayOneShot("Happy");
+            }
         }
 
         StartCoroutine(LeaveRoutine());
@@ -322,6 +332,7 @@ public class CustomerManager : MonoBehaviour
 
     private System.Collections.IEnumerator LeaveRoutine()
     {
+        if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Walking");
         isLeaving = true;
         float elapsed = 0f;
         
