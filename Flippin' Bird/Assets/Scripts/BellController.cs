@@ -157,10 +157,23 @@ public class BellController : MonoBehaviour
             GameManager.Instance.AddMoney(finalEarnings);
         }
 
-        // İstatistikleri güncelle
+        // İstatistikleri ve Akıl Sağlığını güncelle
         if (GameManager.Instance != null)
         {
             GameManager.Instance.totalCustomersServed++;
+
+            int sanityChange = 0;
+            if (accuracyPercent < 40f)
+            {
+                // %0 -> -10, %40 -> -5
+                sanityChange = Mathf.RoundToInt(Mathf.Lerp(-10, -5, accuracyPercent / 40f));
+            }
+            else
+            {
+                // %40 -> +5, %100 -> +10
+                sanityChange = Mathf.RoundToInt(Mathf.Lerp(5, 10, (accuracyPercent - 40f) / 60f));
+            }
+            GameManager.Instance.ModifySanity(sanityChange);
         }
 
         // Log çıkart

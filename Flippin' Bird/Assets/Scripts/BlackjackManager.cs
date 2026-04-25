@@ -370,6 +370,7 @@ public class BlackjackManager : MonoBehaviour
                 GameManager.Instance.AddMoney(winAmount);
                 GameManager.Instance.blackjackWins++;
                 GameManager.Instance.blackjackRevenue += currentBet; // Net profit is currentBet
+                GameManager.Instance.ModifySanity(5);
             }
             summaryText.text = $"YOU WON!\n+${winAmount:F2}";
         }
@@ -379,6 +380,7 @@ public class BlackjackManager : MonoBehaviour
             {
                 GameManager.Instance.blackjackLosses++;
                 GameManager.Instance.blackjackRevenue -= currentBet;
+                GameManager.Instance.ModifySanity(-5);
             }
             summaryText.text = $"YOU LOST!\n-${currentBet:F2}";
         }

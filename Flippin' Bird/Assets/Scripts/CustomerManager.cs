@@ -156,6 +156,7 @@ public class CustomerManager : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.RemoveMoney(5f);
+            GameManager.Instance.ModifySanity(-10);
         }
 
         // Tabağı temizle

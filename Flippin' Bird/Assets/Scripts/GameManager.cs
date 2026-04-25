@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverCanvas;
     public TMP_Text endOfDaySummaryText;
     public TMP_Text gameOverSummaryText; // New reference for summary
+    
+    private string gameOverReason = "";
 
     private void Awake()
     {
@@ -168,6 +170,7 @@ public class GameManager : MonoBehaviour
 
         if (money < 0f)
         {
+            gameOverReason = "MONEY";
             TriggerGameOver();
         }
     }
@@ -187,13 +190,17 @@ public class GameManager : MonoBehaviour
     {
         if (gameOverSummaryText != null)
         {
+            string mainMessage = gameOverReason == "SANITY" ? "YOU LOST YOUR MIND..." : "GAME OVER";
+            string extraMessage = gameOverReason == "SANITY" ? "\nThe darkness finally took over. You are no longer yourself." : "";
+
             gameOverSummaryText.text = 
-                $"GAME OVER\n\n" +
+                $"{mainMessage}\n\n" +
                 $"Days Survived: {currentDay}\n" +
                 $"Customers Served: {totalCustomersServed}\n" +
                 $"Gambling Wins: {blackjackWins}\n" +
                 $"Gambling Losses: {blackjackLosses}\n" +
-                $"Total Gambling Revenue: ${blackjackRevenue:F2}";
+                $"Total Gambling Revenue: ${blackjackRevenue:F2}" +
+                extraMessage;
         }
     }
 
@@ -266,6 +273,7 @@ public class GameManager : MonoBehaviour
         if (money < 0f)
         {
             // Game Over
+            gameOverReason = "MONEY";
             TriggerGameOver();
         }
         else
@@ -325,5 +333,11 @@ public class GameManager : MonoBehaviour
         
         OnSanityChanged?.Invoke(sanity);
         Debug.Log($"[GameManager] Akıl sağlığı değişti ({amount}). Güncel: %{sanity}");
+
+        if (sanity <= 0)
+        {
+            gameOverReason = "SANITY";
+            TriggerGameOver();
+        }
     }
 }
