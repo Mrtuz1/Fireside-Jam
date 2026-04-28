@@ -62,7 +62,7 @@ public class AudioManager : MonoBehaviour
             string sName = s.name.Trim();
             if (sName.Equals("BackgroundMusic", System.StringComparison.OrdinalIgnoreCase))
             {
-                s.source.volume = 0.3f; 
+                s.source.volume = 0.2f; 
             }
             else if (sName.Equals("Bell", System.StringComparison.OrdinalIgnoreCase) || 
                      sName.Equals("Angry", System.StringComparison.OrdinalIgnoreCase))
@@ -89,7 +89,7 @@ public class AudioManager : MonoBehaviour
         SetupButtonClickSounds();
 
         // Check for AudioListener
-        if (FindObjectOfType<AudioListener>() == null)
+        if (Object.FindFirstObjectByType<AudioListener>() == null)
         {
             Debug.LogError("AudioManager: No AudioListener found in the scene! Please ensure your Main Camera has an AudioListener component.");
         }
@@ -111,17 +111,27 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void UpdateGlobalPitch(int sanity)
+    private void UpdateGlobalPitch(float sanity)
     {
-        // Sanity azaldıkça pitch artar (100 sanity -> 1.0 pitch, 0 sanity -> 1.5 pitch)
+        // Sanity azaldıkça normal seslerin pitch'i artar (100 -> 1.0, 0 -> 1.5)
+        // Korku seslerinin (1, 2, 3) pitch'i ise azalır (100 -> 0.9, 0 -> 0.7)
         float dangerLevel = Mathf.Clamp01(1f - (sanity / 100f));
-        float targetPitch = 1f + (dangerLevel * 0.5f);
+        float highPitch = 1f + (dangerLevel * 0.5f);
+        float lowPitch = 0.9f - (dangerLevel * 0.2f); // 100 sanity: 0.9, 0 sanity: 0.7
 
         foreach (Sound s in sounds)
         {
             if (s.source != null)
             {
-                s.source.pitch = targetPitch;
+                string sName = s.name.Trim();
+                if (sName == "1" || sName == "2" || sName == "3")
+                {
+                    s.source.pitch = lowPitch;
+                }
+                else
+                {
+                    s.source.pitch = highPitch;
+                }
             }
         }
     }

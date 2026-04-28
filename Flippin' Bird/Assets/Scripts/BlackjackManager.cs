@@ -151,12 +151,20 @@ public class BlackjackManager : MonoBehaviour
         DrawForDealer(true);
 
         UpdateScoreUI();
+        int playerScore = CalculateScore(playerValues);
 
         // İlk dağıtımda 21 kontrolü (natural blackjack)
-        if (SumValues(playerValues) == 21)
+        if (playerScore == 21)
         {
             yield return new WaitForSeconds(0.4f);
             EndGame(true);
+            yield break;
+        }
+        
+        // İlk elden bust olma kontrolü (örneğin iki As 22 yapıyorsa CalculateScore bunu 12'ye düşürür)
+        if (playerScore > 21)
+        {
+            EndGame(false);
             yield break;
         }
 
@@ -212,11 +220,11 @@ public class BlackjackManager : MonoBehaviour
     // ─────────────────────────────────────────
     IEnumerator CheckPlayerBust()
     {
-        int score = SumValues(playerValues);
+        int score = CalculateScore(playerValues);
+        UpdateScoreUI(); // Görsel skoru güncelle (As 11->1 olmuş olabilir)
 
         if (score == 21)
         {
-            // Blackjack! Direkt kazan
             yield return new WaitForSeconds(0.4f);
             EndGame(true);
             yield break;
@@ -224,46 +232,8 @@ public class BlackjackManager : MonoBehaviour
 
         if (score > 21)
         {
-            // 11'i 1'e çevirme döngüsü
-            bool converted = false;
-            for (int i = 0; i < playerValues.Count; i++)
-            {
-                if (playerValues[i] == 11)
-                {
-                    playerValues[i] = 1;
-                    converted = true;
-                    UpdateScoreUI();
-                    yield return new WaitForSeconds(0.3f);
-
-                    int newScore = SumValues(playerValues);
-
-                    if (newScore == 21)
-                    {
-                        EndGame(true);
-                        yield break;
-                    }
-
-                    if (newScore <= 21)
-                    {
-                        // Oyuna devam
-                        yield break;
-                    }
-
-                    // Hâlâ > 21: döngü devam eder, bir sonraki 11'e bak
-                }
-            }
-
-            if (!converted)
-            {
-                // 11 yoktu, kesinlikle bust
-                EndGame(false);
-            }
-            else
-            {
-                // 11'leri tükettik ama hâlâ > 21
-                int finalScore = SumValues(playerValues);
-                if (finalScore > 21) EndGame(false);
-            }
+            yield return new WaitForSeconds(0.3f);
+            EndGame(false);
         }
     }
 
@@ -289,7 +259,7 @@ public class BlackjackManager : MonoBehaviour
         UpdateScoreUI(revealDealer: true);
         yield return new WaitForSeconds(1f);
 
-        int playerScore = SumValues(playerValues);
+        int playerScore = CalculateScore(playerValues);
         int dealerScore = GetDealerScore();
 
         // Kasa kart çekme: 17'nin altındayken veya oyuncudan küçükken çek
@@ -315,29 +285,30 @@ public class BlackjackManager : MonoBehaviour
     // ─────────────────────────────────────────
     //  Score Calculation
     // ─────────────────────────────────────────
-    int SumValues(List<int> values)
+    int CalculateScore(List<int> values)
     {
         int total = 0;
-        foreach (int v in values) total += v;
+        int aceCount = 0;
+
+        foreach (int v in values)
+        {
+            total += v;
+            if (v == 11) aceCount++;
+        }
+
+        // Eğer 21'i geçtiysek ve elimizde As varsa, As'ları 1'e çevir
+        while (total > 21 && aceCount > 0)
+        {
+            total -= 10;
+            aceCount--;
+        }
+
         return total;
     }
 
-    /// <summary>Kasanın el değerini Ace soft-hard değerlendirmesiyle hesaplar.</summary>
     int GetDealerScore()
     {
-        int score = SumValues(dealerValues);
-        // Kasa için de gerekirse 11→1 uygula
-        List<int> temp = new List<int>(dealerValues);
-        while (score > 21)
-        {
-            bool found = false;
-            for (int i = 0; i < temp.Count; i++)
-            {
-                if (temp[i] == 11) { temp[i] = 1; score -= 10; found = true; break; }
-            }
-            if (!found) break;
-        }
-        return score;
+        return CalculateScore(dealerValues);
     }
 
     // ─────────────────────────────────────────
@@ -345,7 +316,7 @@ public class BlackjackManager : MonoBehaviour
     // ─────────────────────────────────────────
     void UpdateScoreUI(bool revealDealer = false)
     {
-        playerScoreText.text = "Player:\n " + SumValues(playerValues);
+        playerScoreText.text = "Player:\n " + CalculateScore(playerValues);
 
         if (revealDealer)
             dealerScoreText.text = "Dealer:\n " + GetDealerScore();

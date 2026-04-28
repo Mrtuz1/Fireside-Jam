@@ -6,6 +6,9 @@ public class SanityVFXManager : MonoBehaviour
 {
     [Header("Volume Reference")]
     [SerializeField] private Volume sanityVolume;
+    
+    [Header("Light Reference")]
+    [SerializeField] private UnityEngine.Rendering.Universal.Light2D sanityLight;
 
     // Aktif efektlerin referansları
     private Vignette vignette;
@@ -53,11 +56,17 @@ public class SanityVFXManager : MonoBehaviour
         }
     }
 
-    private void UpdateEffects(int sanity)
+    private void UpdateEffects(float sanity)
     {
         // Gelen sanity değeri ne olursa olsun, tehlike oranını 
         // KESİNLİKLE 0 (güvenli) ile 1 (tehlike) arasında tut (Hataları önler).
         float dangerLevel = Mathf.Clamp01(1f - (sanity / 100f));
+        
+        // Işık şiddeti (Sanity 100 -> Intensity 0, Sanity 0 -> Intensity 1)
+        if (sanityLight != null)
+        {
+            sanityLight.intensity = dangerLevel;
+        }
 
         // --- Efekt Güncellemeleri (.Override() kullanımı güvenlidir) ---
 

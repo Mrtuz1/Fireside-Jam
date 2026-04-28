@@ -72,7 +72,6 @@ public class CustomerManager : MonoBehaviour
     public Transform startPos;
     public Transform exitPos;
     public float leaveDuration = 3f; // Müşterinin çıkışa yürüme süresi (daha yavaş)
-    private bool isLeaving = false;
     private Vector3 counterPos; // Kasanın önündeki kalıcı pozisyon
 
     [Header("Emojis")]
@@ -90,12 +89,20 @@ public class CustomerManager : MonoBehaviour
 
     // -------------------------------------------------------
 
+    private float _baseMaxWaitTime;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
         counterPos = transform.position; // Oyun başında nerede duruyorsa orası counterPos'tur
+        _baseMaxWaitTime = maxWaitTime; // Başlangıçtaki süreyi (20s) kaydet
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     private void Start()
@@ -125,6 +132,27 @@ public class CustomerManager : MonoBehaviour
         // Gün sayısını GameManager'dan alıyoruz
         int currentDay = GameManager.Instance != null ? GameManager.Instance.currentDay : 1;
         GenerateOrder(currentDay);
+
+        // Dinamik dengeleme: 3'ten fazla köfte varsa bekleme süresine 8 saniye ekle
+        int pattyCount = 0;
+        foreach (var item in currentActiveOrder)
+        {
+            if (item.ingredient == IngredientType.CookedPatty)
+            {
+                pattyCount = item.count;
+                break;
+            }
+        }
+
+        if (pattyCount > 3)
+        {
+            maxWaitTime = _baseMaxWaitTime + 8f;
+            Debug.Log($"[CustomerManager] Zor sipariş ({pattyCount} köfte)! Bekleme süresi artırıldı: {maxWaitTime}s");
+        }
+        else
+        {
+            maxWaitTime = _baseMaxWaitTime;
+        }
 
         // Bekleme süresini sıfırla ve başlat
         currentWaitTime = 0f;
@@ -161,11 +189,13 @@ public class CustomerManager : MonoBehaviour
             GameManager.Instance.ModifySanity(-10);
         }
 
+        /* 
         // Tabağı temizle
         if (PlateManager.Instance != null)
         {
             PlateManager.Instance.ClearPlate();
         }
+        */
 
         // Müşteri %0 doğrulukla (en mutsuz) gider
         Leave(0f);
@@ -202,7 +232,6 @@ public class CustomerManager : MonoBehaviour
     public void GenerateRandomCustomer()
     {
         StopAllCoroutines();
-        isLeaving = false;
         
         if (startPos != null) transform.position = startPos.position;
         SetCharacterColor(new Color(0, 0, 0, 0)); // Siyah ve şeffaf başla
@@ -333,7 +362,6 @@ public class CustomerManager : MonoBehaviour
     private System.Collections.IEnumerator LeaveRoutine()
     {
         if (AudioManager.instance != null) AudioManager.instance.PlayOneShot("Walking");
-        isLeaving = true;
         float elapsed = 0f;
         
         Vector3 startLoc = transform.position;
@@ -356,7 +384,6 @@ public class CustomerManager : MonoBehaviour
         
         transform.position = endLoc;
         SetCharacterColor(new Color(0, 0, 0, 0));
-        isLeaving = false;
 
         // Karakter tamamen yok olunca emojiyi de gizle
         if (emojiRenderer != null) emojiRenderer.gameObject.SetActive(false);
@@ -398,24 +425,19 @@ public class CustomerManager : MonoBehaviour
     {
         if (_allSprites != null && _allSprites.Length > 0) return;
 
-#if UNITY_EDITOR
-        // Editor modunda AssetDatabase kullanarak sub-sprite'ları al
-        string path = UnityEditor.AssetDatabase.GetAssetPath(spriteSheet);
-        Object[] assets = UnityEditor.AssetDatabase.LoadAllAssetsAtPath(path);
+        // Texture'ın adını alıyoruz (Örn: "FlippinBird-Sheet")
+        string sheetName = spriteSheet != null ? spriteSheet.name : "FlippinBird-Sheet";
 
-        var list = new System.Collections.Generic.List<Sprite>();
-        foreach (Object obj in assets)
-            if (obj is Sprite sp)
-                list.Add(sp);
+        // Resources klasöründen bu isimdeki TÜM sprite'ları (sub-sprites) yükle
+        // ÖNEMLİ: Sprite sheet dosyanız Assets/Resources/ klasörü içinde olmalıdır.
+        _allSprites = Resources.LoadAll<Sprite>(sheetName);
 
-        _allSprites = list.ToArray();
-#else
-        // Build: Resources klasöründe ise Resources.LoadAll kullanabilirsiniz.
-        // Şimdilik inspector'dan atanan texture yeterlidir; build için
-        // SpriteAtlas veya Addressables kullanmanızı öneririz.
-        Debug.LogWarning("[CustomerManager] Build modunda sprite yükleme için " +
-                         "SpriteAtlas veya Addressables kullanın.");
-#endif
+        if (_allSprites == null || _allSprites.Length == 0)
+        {
+            Debug.LogError($"[CustomerManager] '{sheetName}' sprite'ları bulunamadı! " + 
+                           "Lütfen sprite sheet dosyasını Assets/Resources/ klasörüne taşıdığınızdan ve " +
+                           "Texture Type'ın 'Sprite (2D and UI)', Sprite Mode'un 'Multiple' olduğundan emin olun.");
+        }
     }
 
     // -------------------------------------------------------

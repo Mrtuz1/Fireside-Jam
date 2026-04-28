@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [Header("Core State")]
     public int currentDay = 1;
     public float money = 20f;
-    [Range(0, 100)] public int sanity = 100;
+    [Range(0, 100)] public float sanity = 100f;
 
     [Header("Statistics")]
     public int totalCustomersServed = 0;
@@ -25,10 +25,11 @@ public class GameManager : MonoBehaviour
     public event Action<int> OnDayChanged;
     public event Action OnDayEnded;
     public event Action<float> OnMoneyChanged;
-    public event Action<int> OnSanityChanged;
+    public event Action<float> OnSanityChanged;
 
     [Header("UI References")]
     [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text dayText;
     [Tooltip("Para artış/azalışında çıkacak kayan yazı prefab'ı")]
     [SerializeField] private GameObject floatingTextPrefab;
     [Tooltip("Kayan yazının nerede çıkacağı. Boş bırakılırsa ana paranın bulunduğu yerden çıkar.")]
@@ -42,10 +43,6 @@ public class GameManager : MonoBehaviour
     public bool isDayActive = false;
     private float dayTimer;
 
-    [Header("Sanity Drain")]
-    [Tooltip("Kaç saniyede bir 1 birim akıl sağlığı düşer")]
-    public float sanityDrainInterval = 1f;
-    private float sanityDrainTimer;
 
     [Header("Day Cycle UI")]
     public TMP_Text timerText;
@@ -92,13 +89,8 @@ public class GameManager : MonoBehaviour
                 EndDay();
             }
 
-            // Zamana bağlı akıl sağlığı azalması
-            sanityDrainTimer += Time.deltaTime;
-            if (sanityDrainTimer >= sanityDrainInterval)
-            {
-                sanityDrainTimer = 0f;
-                ModifySanity(-1);
-            }
+            // Zamana bağlı akıl sağlığı azalması (Saniyede 1.25 birim)
+            ModifySanity(-1.25f * Time.deltaTime);
         }
     }
 
@@ -120,7 +112,6 @@ public class GameManager : MonoBehaviour
         currentRent = baseDailyRent;
 
         dayTimer = dayDuration;
-        sanityDrainTimer = 0f;
         isDayActive = true;
         Time.timeScale = 1f;
 
@@ -133,6 +124,7 @@ public class GameManager : MonoBehaviour
         OnDayChanged?.Invoke(currentDay);
         OnMoneyChanged?.Invoke(money);
         OnSanityChanged?.Invoke(sanity);
+        UpdateDayUI();
     }
 
     // ==========================================
@@ -224,8 +216,9 @@ public class GameManager : MonoBehaviour
         {
             Transform parentTransform = floatingTextSpawnPoint != null ? floatingTextSpawnPoint : moneyText.transform.parent;
             
-            // Paranın pozisyonunda oluşturup aynı UI hiyerarşisine ekle
-            GameObject floatingObj = Instantiate(floatingTextPrefab, moneyText.transform.position, Quaternion.identity, parentTransform);
+            // Spawn noktasında oluştur (atandıysa oradan, yoksa paradan)
+            Vector3 spawnPos = floatingTextSpawnPoint != null ? floatingTextSpawnPoint.position : moneyText.transform.position;
+            GameObject floatingObj = Instantiate(floatingTextPrefab, spawnPos, Quaternion.identity, parentTransform);
             
             FloatingText ft = floatingObj.GetComponent<FloatingText>();
             if (ft != null)
@@ -240,6 +233,14 @@ public class GameManager : MonoBehaviour
         if (moneyText != null)
         {
             moneyText.text = $"${currentMoney:F2}";
+        }
+    }
+
+    private void UpdateDayUI()
+    {
+        if (dayText != null)
+        {
+            dayText.text = $"DAY: {currentDay}";
         }
     }
 
@@ -323,6 +324,9 @@ public class GameManager : MonoBehaviour
 
         if (moneyText != null) moneyText.gameObject.SetActive(true);
         if (timerText != null) timerText.gameObject.SetActive(true);
+        if (dayText != null) dayText.gameObject.SetActive(true);
+
+        UpdateDayUI();
 
         if (CustomerManager.Instance != null)
         {
@@ -337,16 +341,22 @@ public class GameManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1f;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
     // ==========================================
     // AKIL SAĞLIĞI (SANITY) YÖNETİMİ
     // ==========================================
 
-    public void ModifySanity(int amount)
+    public void ModifySanity(float amount)
     {
-        sanity = Mathf.Clamp(sanity + amount, 0, 100);
+        sanity = Mathf.Clamp(sanity + amount, 0f, 100f);
         
         OnSanityChanged?.Invoke(sanity);
-        Debug.Log($"[GameManager] Akıl sağlığı değişti ({amount}). Güncel: %{sanity}");
+        // Debug.Log($"[GameManager] Akıl sağlığı değişti ({amount}). Güncel: %{sanity:F1}");
 
         if (sanity <= 0)
         {

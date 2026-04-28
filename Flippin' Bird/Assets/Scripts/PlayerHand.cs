@@ -23,6 +23,7 @@ public class PlayerHand : MonoBehaviour
                 SpriteRenderer sr = _heldIngredient.GetComponent<SpriteRenderer>();
                 if (sr != null)
                 {
+                    sr.sortingLayerName = "ExtraForeground";
                     sr.sortingOrder = 100;
                 }
             }

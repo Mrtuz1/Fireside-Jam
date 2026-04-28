@@ -133,6 +133,7 @@ public class PlateManager : MonoBehaviour
             SpriteRenderer sr = heldObj.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
+                sr.sortingLayerName = "Foreground";
                 sr.sortingOrder = 10 + ingredientStack.Count;
             }
             

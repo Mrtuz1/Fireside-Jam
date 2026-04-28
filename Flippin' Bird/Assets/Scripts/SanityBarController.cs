@@ -37,16 +37,21 @@ public class SanityBarController : MonoBehaviour
         if (fillImage != null)
         {
             fillImage.fillAmount = Mathf.Lerp(fillImage.fillAmount, targetFillAmount, Time.deltaTime * updateSpeed);
+            
+            // Renk geçişi: Beyaz (1,1,1) -> Koyu Kırmızı (0.5,0,0)
+            // fillAmount 1 iken beyaz, 0'a yaklaştıkça kırmızı olur.
+            Color targetColor = Color.Lerp(new Color(0.5f, 0f, 0f, 1f), Color.white, fillImage.fillAmount);
+            fillImage.color = targetColor;
         }
     }
 
-    private void HandleSanityChanged(int newSanity)
+    private void HandleSanityChanged(float newSanity)
     {
         // Sanity 0-100 arası olduğu için 100'e bölerek 0-1 arasına çekiyoruz
         targetFillAmount = newSanity / 100f;
     }
 
-    private void UpdateBarInstant(int currentSanity)
+    private void UpdateBarInstant(float currentSanity)
     {
         targetFillAmount = currentSanity / 100f;
         if (fillImage != null)

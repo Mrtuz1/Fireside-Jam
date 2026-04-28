@@ -182,6 +182,14 @@ public class GrillSlot : MonoBehaviour
             patty.transform.position = transform.position;
             patty.transform.SetParent(transform);
             
+            // Görsel katmanını normal plana (Foreground) geri çek
+            SpriteRenderer sr = patty.GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                sr.sortingLayerName = "Foreground";
+                sr.sortingOrder = 10;
+            }
+            
             // Update visual state and reset timer
             cookTimer = 0f;
             UpdateProgressVisuals();
@@ -213,7 +221,7 @@ public class GrillSlot : MonoBehaviour
     {
         if (AudioManager.instance == null) return;
         
-        GrillSlot[] allSlots = FindObjectsOfType<GrillSlot>();
+        GrillSlot[] allSlots = Object.FindObjectsByType<GrillSlot>(FindObjectsSortMode.None);
         bool anyMeat = false;
         foreach (var slot in allSlots)
         {

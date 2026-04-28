@@ -50,5 +50,8 @@ TagManager:
   - name: Foreground
     uniqueID: 2483452799
     locked: 0
+  - name: ExtraForeground
+    uniqueID: 3903523909
+    locked: 0
   m_RenderingLayers:
   - Default
